@@ -4,32 +4,33 @@
 <mapper namespace="com.sona.gi.model.restaurant.mapper.RestaurantMapper">
 
 
-
+    <!-- 기부자(음식점) 회원 등록 -->
     <insert id="regist" parameterType="RestaurantDto">
-        INSERT INTO Restaurant (ID)
-        VALUES (#{id})
+        INSERT INTO Restaurant (ID, PASSWORD, NAME, PHONENUM, ADTEL, ADNAME, ADDRESS, BNUM)
+        VALUES (#{id},#{password},#{name},#{phoneNum},#{adTel},#{adName},#{address},#{bNum})
     </insert>
 
+    <!-- 기부자(음식점) 전체 정보 검색 -->
     <select id="findAll" resultType="RestaurantDto">
-        SELECT ID,NAME, KOR_SCORE, ENG_SCORE, MATH_SCORE FROM Restaurant
+        SELECT ID, PASSWORD, NAME, PHONENUM, ADTEL, ADNAME, ADDRESS, BNUM FROM Restaurant
     </select>
 
-
+    <!-- 기부자(음식점) 정보 수정 -->
     <update id="modify" parameterType="RestaurantDto">
-        UPDATE Restaurant SET KOR_SCORE=#{korScore},
-                        ENG_SCORE=#{engScore}, MATH_SCORE=#{mathScore}
+        UPDATE Restaurant SET PASSWORD=#{password},
+                              ADDRESS=#{address}, ADTEL=#{adTel}, ADNAME=#{adName}
         WHERE ID=#{id}
     </update>
 
-
+    <!-- 기부자(음식점) 정보 삭제 -->
     <delete id="delete" parameterType="RestaurantDto">
         DELETE FROM Restaurant
         WHERE ID = #{id}
     </delete>
 
-
+    <!-- 기부자(음식점) 사업자 등록 번호 유효성 검사 (안씀)-->
     <select id="findSearch" parameterType="RestaurantDto" resultType="RestaurantDto">
-        SELECT ID,NAME, KOR_SCORE, ENG_SCORE, MATH_SCORE
+        SELECT ID, PASSWORD, NAME, PHONENUM, ADTEL, ADNAME, ADDRESS, BNUM
         FROM Restaurant
         <if test='keyword!=null and keyword!=""'>
             where ${searchCode} = #{keyword} <!-- $표시 -> statement -->

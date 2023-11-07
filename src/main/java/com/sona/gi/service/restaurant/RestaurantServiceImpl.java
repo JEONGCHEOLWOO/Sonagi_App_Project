@@ -14,9 +14,7 @@ public class RestaurantServiceImpl implements RestaurantService{
     @Autowired
     private RestaurantMapper restaurantMapper;
     @Override
-    public int regist(RestaurantDto restaurantDto) {
-        return restaurantMapper.regist(restaurantDto);
-    }
+    public int regist(RestaurantDto restaurantDto) { return restaurantMapper.regist(restaurantDto); }
 
     @Override
     public List<RestaurantDto> findAll() {
@@ -24,9 +22,7 @@ public class RestaurantServiceImpl implements RestaurantService{
     }
 
     @Override
-    public int modify(RestaurantDto restaurantDto) {
-        return restaurantMapper.modify(restaurantDto);
-    }
+    public int modify(RestaurantDto restaurantDto) { return restaurantMapper.modify(restaurantDto); }
 
     @Override
     public int delete(RestaurantDto restaurantDto) {

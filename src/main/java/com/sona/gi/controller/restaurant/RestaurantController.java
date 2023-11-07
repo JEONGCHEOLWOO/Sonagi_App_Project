@@ -4,6 +4,9 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sona.gi.model.restaurant.dto.RestaurantDto;
 import com.sona.gi.service.restaurant.RestaurantService;
+import org.codehaus.jackson.map.JsonSerializer;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,12 +30,19 @@ public class RestaurantController {
 
 
     @PostMapping("/regist")
-    public HashMap<String, Object> regist(@RequestBody RestaurantDto restaurantDto){
+    public HashMap<String, Object> regist(@RequestBody RestaurantDto restaurantDto) throws IOException {
         HashMap<String,Object> mv = new HashMap<>();
+        System.out.println(restaurantDto.getbNum().toString());
+        boolean test = check(restaurantDto.getbNum());
 
-        int resultCnt = restaurantService.regist(restaurantDto);
-        mv.put("result",resultCnt);
-        return mv;
+        if(test == true){
+            int resultCnt = restaurantService.regist(restaurantDto);
+            mv.put("result",resultCnt);
+            return mv;
+        }else{
+            mv.put("result", 0);
+            return mv;
+        }
     }
 
     //    @RequestMapping(method = RequestMethod.POST, path = "/postMethod")
@@ -62,8 +72,7 @@ public class RestaurantController {
         return mv;
     }
 
-    @PostMapping("/checkRegist")
-    public boolean check(@RequestBody String number) throws IOException {
+    public boolean check(String number) throws IOException {
         // 사업자 등록 번호: 000-00-00000
         // 앞에 3자리: 국세청 / 세무서별 코드
         // 2자리: 개인 법인 구분코드
@@ -72,6 +81,15 @@ public class RestaurantController {
         StringBuilder urlBuilder = new StringBuilder("https://api.odcloud.kr/api/nts-businessman/v1/status");
         urlBuilder.append("?" + URLEncoder.encode("serviceKey","UTF-8") + "=t2qs2a1o15tXR1NhKWY%2FTplsMnvey2e3kTFt8BIlR8dJ6JsaALNvYI6%2B5dKPSJbl%2FJ9C0dF7%2Boi2NwGJKHikSQ%3D%3D"); /*Service Key*/
         URL url = new URL(urlBuilder.toString());
+
+        //8063101681 의 데이터를 {"b_no": ["8063101681"]} 형태로 변환
+
+        JSONObject jsonObject = new JSONObject();
+        JSONArray bNoArrayJson = new JSONArray();
+        bNoArrayJson.put(number);
+        jsonObject.put("b_no", bNoArrayJson);
+        System.out.println(jsonObject);
+
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
         conn.setRequestMethod("POST");
@@ -80,7 +98,7 @@ public class RestaurantController {
         conn.setDoOutput(true);
 
         try (OutputStream os = conn.getOutputStream()) {
-            byte[] input = number.toString().getBytes("UTF-8");
+            byte[] input = jsonObject.toString().getBytes("UTF-8");
             os.write(input, 0, input.length);
         }
 

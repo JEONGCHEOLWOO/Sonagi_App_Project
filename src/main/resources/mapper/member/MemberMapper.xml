@@ -4,32 +4,34 @@
 <mapper namespace="com.sona.gi.model.member.mapper.MemberMapper">
 
 
-
+    <!-- 피기부자(보육시설) 회원 등록 -->
     <insert id="regist" parameterType="MemberDto">
-        INSERT INTO Member (ID)
-        VALUES (#{id})
+        INSERT INTO Member (ID, PASSWORD, MANAGERNAME, PHONENUM, ADTEL, ADNAME, ADDRESS, HOMEPAGE, TOTALHC, CURRHC, INTRODUCTION)
+        VALUES (#{id},#{password},#{managerName},#{phoneNum},#{adTel},#{adName},#{address},#{homepage},#{totalHc},#{currHc},#{introduction})
     </insert>
 
+    <!-- 피기부자(보육시설) 전체 정보 검색 -->
     <select id="findAll" resultType="MemberDto">
-        SELECT ID,NAME, KOR_SCORE, ENG_SCORE, MATH_SCORE FROM Member
+        SELECT ID, PASSWORD, MANAGERNAME, PHONENUM, ADTEL, ADNAME, ADDRESS, HOMEPAGE, TOTALHC, CURRHC, INTRODUCTION FROM Member
     </select>
 
-
+    <!-- 피기부자(보육시설) 정보 수정 -->
     <update id="modify" parameterType="MemberDto">
-        UPDATE Member SET KOR_SCORE=#{korScore},
-                        ENG_SCORE=#{engScore}, MATH_SCORE=#{mathScore}
+        UPDATE Member SET PASSWORD=#{password},
+                          INTRODUCTION=#{introduction}, ADTEL=#{adTel}, ADNAME=#{adName}, ADDRESS=#{address}, TOTALHC=#{totalHc}
         WHERE ID=#{id}
     </update>
 
-
+    <!-- 피기부자(보육시설) 정보 삭제 -->
     <delete id="delete" parameterType="MemberDto">
         DELETE FROM Member
         WHERE ID = #{id}
     </delete>
 
 
+    <!-- 피기부자(보육시설) -->
     <select id="findSearch" parameterType="MemberDto" resultType="MemberDto">
-        SELECT ID,NAME, KOR_SCORE, ENG_SCORE, MATH_SCORE
+        SELECT ID, PASSWORD, MANAGERNAME, PHONENUM, ADTEL, ADNAME, ADDRESS, HOMEPAGE, TOTALHC, CURRHC, INTRODUCTION
         FROM Member
         <if test='keyword!=null and keyword!=""'>
             where ${searchCode} = #{keyword} <!-- $표시 -> statement -->

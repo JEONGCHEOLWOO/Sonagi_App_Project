@@ -26,6 +26,9 @@ dependencies {
 	testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.2'
 	implementation group: 'com.google.firebase', name: 'firebase-admin', version: '8.1.0'
 
+	implementation group: 'org.json', name: 'json', version: '20210307'
+
+
 	implementation 'com.fasterxml.jackson.core:jackson-databind:2.16.0-rc1'
 	implementation 'org.codehaus.jackson:jackson-mapper-asl:1.9.13'
 

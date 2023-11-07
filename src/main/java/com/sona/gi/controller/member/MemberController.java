@@ -7,7 +7,6 @@ import com.sona.gi.service.member.MemberService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -31,7 +30,6 @@ public class MemberController {
     @PostMapping("/regist")
     public HashMap<String, Object> regist(@RequestBody MemberDto memberDto){
         HashMap<String,Object> mv = new HashMap<>();
-
         int resultCnt = memberService.regist(memberDto);
         mv.put("result",resultCnt);
         return mv;
