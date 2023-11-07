@@ -15,7 +15,7 @@ public class FirebaseConfig {
     public void init(){
         try{
             FileInputStream serviceAccount =
-                    new FileInputStream("./resources/serviceAccountKey.json");
+                    new FileInputStream("F:/Intellij Project/Sonagi_App_Project/src/main/resources/serviceAccountKey.json");
             FirebaseOptions options = new FirebaseOptions.Builder()
                     .setCredentials(GoogleCredentials.fromStream(serviceAccount))
                     .build();
