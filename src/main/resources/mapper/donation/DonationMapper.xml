@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.00//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sona.gi.model.donation.mapper.DonationMapper">
+
+
+
+    <insert id="regist" parameterType="DonationDto">
+        INSERT INTO Donation (ID)
+        VALUES (#{id})
+    </insert>
+
+    <select id="findAll" resultType="DonationDto">
+        SELECT ID,NAME, KOR_SCORE, ENG_SCORE, MATH_SCORE FROM Donation
+    </select>
+
+
+    <update id="modify" parameterType="DonationDto">
+        UPDATE Donation SET KOR_SCORE=#{korScore},
+                                  ENG_SCORE=#{engScore}, MATH_SCORE=#{mathScore}
+        WHERE ID=#{id}
+    </update>
+
+
+    <delete id="delete" parameterType="DonationDto">
+        DELETE FROM Donation
+        WHERE ID = #{id}
+    </delete>
+
+
+    <select id="findSearch" parameterType="DonationDto" resultType="DonationDto">
+        SELECT ID,NAME, KOR_SCORE, ENG_SCORE, MATH_SCORE
+        FROM Donation
+        <if test='keyword!=null and keyword!=""'>
+            where ${searchCode} = #{keyword} <!-- $표시 -> statement -->
+        </if>
+    </select>
+
+
+
+</mapper>

@@ -1,13 +1,13 @@
-package io.cloudtype.Demo;
+package com.sona.gi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoApplication {
+public class GiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(GiApplication.class, args);
 	}
 
 }

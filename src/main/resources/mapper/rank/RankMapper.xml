@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.00//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sona.gi.model.rank.mapper.RankMapper">
+
+
+
+    <insert id="regist" parameterType="RankDto">
+        INSERT INTO Rank (ID)
+        VALUES (#{id})
+    </insert>
+
+    <select id="findAll" resultType="RankDto">
+        SELECT ID,NAME, KOR_SCORE, ENG_SCORE, MATH_SCORE FROM Rank
+    </select>
+
+
+    <update id="modify" parameterType="RankDto">
+        UPDATE Rank SET KOR_SCORE=#{korScore},
+                          ENG_SCORE=#{engScore}, MATH_SCORE=#{mathScore}
+        WHERE ID=#{id}
+    </update>
+
+
+    <delete id="delete" parameterType="RankDto">
+        DELETE FROM Rank
+        WHERE ID = #{id}
+    </delete>
+
+
+    <select id="findSearch" parameterType="RankDto" resultType="RankDto">
+        SELECT ID,NAME, KOR_SCORE, ENG_SCORE, MATH_SCORE
+        FROM Rank
+        <if test='keyword!=null and keyword!=""'>
+            where ${searchCode} = #{keyword} <!-- $표시 -> statement -->
+        </if>
+    </select>
+
+</mapper>
