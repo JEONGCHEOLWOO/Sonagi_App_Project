@@ -3,6 +3,12 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sona.gi.model.restaurant.mapper.RestaurantMapper">
 
+    <!-- 기부자(음식점) 회원 로그인 -->
+    <select id="login" parameterType="RestaurantDto" resultType="RestaurantDto">
+        SELECT ID, PASSWORD, NAME, PHONENUM, ADTEL, ADNAME, ADDRESS, BNUM
+        FROM Restaurant
+        WHERE ID=#{id} AND PASSWORD=#{password}
+    </select>
 
     <!-- 기부자(음식점) 회원 등록 -->
     <insert id="regist" parameterType="RestaurantDto">
@@ -28,13 +34,12 @@
         WHERE ID = #{id}
     </delete>
 
-    <!-- 기부자(음식점) 사업자 등록 번호 유효성 검사 (안씀)-->
+    <!-- 기부자(음식점) 로그인 -->
     <select id="findSearch" parameterType="RestaurantDto" resultType="RestaurantDto">
-        SELECT ID, PASSWORD, NAME, PHONENUM, ADTEL, ADNAME, ADDRESS, BNUM
+        SELECT ID, PASSWORD
         FROM Restaurant
-        <if test='keyword!=null and keyword!=""'>
-            where ${searchCode} = #{keyword} <!-- $표시 -> statement -->
-        </if>
+        where ID = #{id} AND PASSWORD = #{password}<!-- $표시 -> statement -->
+
     </select>
 
 </mapper>

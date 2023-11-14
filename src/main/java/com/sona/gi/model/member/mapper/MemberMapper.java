@@ -13,4 +13,8 @@ public interface MemberMapper {
         int modify(MemberDto memberDto);
 
         int delete(MemberDto memberDto);
+
+        int findSearch(MemberDto memberDto);
+
+        List<MemberDto> login(MemberDto memberDto);
 }

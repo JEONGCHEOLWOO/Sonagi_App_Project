@@ -13,4 +13,6 @@ public interface RestaurantMapper {
     int modify(RestaurantDto restaurantDto);
 
     int delete(RestaurantDto restaurantDto);
+    int findSearch(RestaurantDto restaurantDto);
+    List<RestaurantDto> login(RestaurantDto restaurantDto);
 }

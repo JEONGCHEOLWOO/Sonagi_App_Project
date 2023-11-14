@@ -1,6 +1,5 @@
 package com.sona.gi.service.restaurant;
 
-import com.sona.gi.model.donation.mapper.DonationMapper;
 import com.sona.gi.model.restaurant.dto.RestaurantDto;
 import com.sona.gi.model.restaurant.mapper.RestaurantMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,4 +27,10 @@ public class RestaurantServiceImpl implements RestaurantService{
     public int delete(RestaurantDto restaurantDto) {
         return restaurantMapper.delete(restaurantDto);
     }
+
+    @Override
+    public int findSearch(RestaurantDto restaurantDto) { return restaurantMapper.findSearch(restaurantDto); }
+
+    @Override
+    public List<RestaurantDto> login(RestaurantDto restaurantDto) { return restaurantMapper.login(restaurantDto); }
 }

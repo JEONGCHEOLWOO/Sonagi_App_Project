@@ -21,11 +21,21 @@ public class MemberController {
     //로그 확인용
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
-
     @Autowired
     private MemberService memberService;
     @Autowired
     private FireBaseService fireBaseService;
+
+    @PostMapping("/login")
+    public int login(@RequestBody MemberDto memberDto){
+        List<MemberDto> list = memberService.login(memberDto);
+
+        if(!list.isEmpty()){
+            return 1;
+        }else{
+            return 0;
+        }
+    }
 
     @PostMapping("/regist")
     public HashMap<String, Object> regist(@RequestBody MemberDto memberDto){

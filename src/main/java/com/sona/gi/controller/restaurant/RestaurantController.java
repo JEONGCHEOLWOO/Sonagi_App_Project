@@ -24,10 +24,19 @@ import java.util.List;
 public class RestaurantController {
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
-
     @Autowired
     private RestaurantService restaurantService;
 
+    @PostMapping("/login")
+    public int login(@RequestBody RestaurantDto restaurantDto){
+        List<RestaurantDto> list = restaurantService.login(restaurantDto);
+
+        if(!list.isEmpty()){
+            return 1;
+        }else{
+            return 0;
+        }
+    }
 
     @PostMapping("/regist")
     public HashMap<String, Object> regist(@RequestBody RestaurantDto restaurantDto) throws IOException {

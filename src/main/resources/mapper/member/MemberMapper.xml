@@ -3,6 +3,13 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sona.gi.model.member.mapper.MemberMapper">
 
+    <!-- 피기부자(보육시설) 회원 로그인 -->
+    <select id="login" parameterType="MemberDto" resultType="MemberDto">
+        SELECT ID, PASSWORD, MANAGERNAME, PHONENUM, ADTEL, ADNAME, ADDRESS, HOMEPAGE, TOTALHC, CURRHC, INTRODUCTION
+        FROM Member
+        WHERE ID=#{id} AND PASSWORD=#{password}
+    </select>
+
 
     <!-- 피기부자(보육시설) 회원 등록 -->
     <insert id="regist" parameterType="MemberDto">
@@ -29,13 +36,12 @@
     </delete>
 
 
-    <!-- 피기부자(보육시설) -->
+    <!-- 피기부자(보육시설) 로그인 -->
     <select id="findSearch" parameterType="MemberDto" resultType="MemberDto">
-        SELECT ID, PASSWORD, MANAGERNAME, PHONENUM, ADTEL, ADNAME, ADDRESS, HOMEPAGE, TOTALHC, CURRHC, INTRODUCTION
+        SELECT ID, PASSWORD
         FROM Member
-        <if test='keyword!=null and keyword!=""'>
-            where ${searchCode} = #{keyword} <!-- $표시 -> statement -->
-        </if>
+        where ID = #{id} AND PASSWORD = #{password} <!-- $표시 -> statement -->
+
     </select>
 
 
