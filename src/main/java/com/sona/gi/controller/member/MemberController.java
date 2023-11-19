@@ -15,6 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://172.16.100.23:3000")
 @RequestMapping("/boot/member")
 public class MemberController {
 
@@ -27,14 +28,10 @@ public class MemberController {
     private FireBaseService fireBaseService;
 
     @PostMapping("/login")
-    public int login(@RequestBody MemberDto memberDto){
+    public List<MemberDto> login(@RequestBody MemberDto memberDto){
         List<MemberDto> list = memberService.login(memberDto);
 
-        if(!list.isEmpty()){
-            return 1;
-        }else{
-            return 0;
-        }
+        return list;
     }
 
     @PostMapping("/regist")
