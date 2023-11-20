@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
-@Slf4j
+
 @Service
 public class FireBaseInitializer {
 // 초기화 코드

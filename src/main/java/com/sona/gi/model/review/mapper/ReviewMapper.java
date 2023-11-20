@@ -1,6 +1,5 @@
 package com.sona.gi.model.review.mapper;
 
-import com.sona.gi.model.restaurant.dto.RestaurantDto;
 import com.sona.gi.model.review.dto.ReviewDto;
 import org.apache.ibatis.annotations.Mapper;
 

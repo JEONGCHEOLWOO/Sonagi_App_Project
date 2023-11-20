@@ -1,6 +1,5 @@
 package com.sona.gi.service.review;
 
-import com.sona.gi.model.donation.mapper.DonationMapper;
 import com.sona.gi.model.review.dto.ReviewDto;
 import com.sona.gi.model.review.mapper.ReviewMapper;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.00//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sona.gi.model.notice.mapper.NoticeMapper">
+
+    <!-- 공지사항 등록 -->
+    <insert id="regist" parameterType="NoticeDto">
+        INSERT INTO Notice (id, textNum, title, context, noticeDate)
+        VALUES (#{id},#{textNum}, #{title}, #{context}, #{noticeDate})
+    </insert>
+
+    <!-- 공지사항 전체 검색 -->
+    <select id="findAll" resultType="NoticeDto">
+        SELECT id, textNum, title, context, noticeDate
+        FROM Notice
+    </select>
+
+    <!-- 공지사항 수정 -->
+    <update id="modify" parameterType="NoticeDto">
+        UPDATE Notice SET title=#{title}, context=#{context}, noticeDate=#{noticeDate}
+        WHERE id=#{id}
+    </update>
+
+    <!-- 공지사항 삭제 -->
+    <delete id="delete" parameterType="NoticeDto">
+        DELETE FROM Notice
+        WHERE title=#{title}
+    </delete>
+
+</mapper>

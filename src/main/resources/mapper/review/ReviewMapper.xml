@@ -15,7 +15,6 @@
         FROM ReviewThx
     </select>
 
-
     <update id="modify" parameterType="ReviewDto">
         UPDATE ReviewThx SET reviewTitle=#{reviewTitle},
                              reviewContext=#{reviewContext}, reviewDate=#{reviewDate}
