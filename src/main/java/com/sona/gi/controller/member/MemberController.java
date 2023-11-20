@@ -15,7 +15,6 @@ import java.util.HashMap;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://172.16.100.23:3000")
 @RequestMapping("/boot/member")
 public class MemberController {
 

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.00//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sona.gi.model.admin.mapper.AdminMapper">
+
+    <!-- 보육시설 변경 요청 -->
+    <select id="requestAdmin" parameterType="AdminDto" resultType="AdminDto">
+        SELECT ID, MANAGERNAME, ADTEL, ADNAME, ADDRESS, INTRODUCTION
+        FROM Admin
+    </select>
+
+</mapper>
