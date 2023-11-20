@@ -7,5 +7,5 @@ import java.util.List;
 
 @Mapper
 public interface AdminMapper {
-    List<AdminDto> requestAdmin(AdminDto adminDto);
+    int requestAdmin(AdminDto adminDto);
 }

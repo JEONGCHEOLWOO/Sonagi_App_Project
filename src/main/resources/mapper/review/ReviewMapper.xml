@@ -6,34 +6,27 @@
 
 
     <insert id="regist" parameterType="ReviewDto">
-        INSERT INTO Review (ID)
-        VALUES (#{id})
+        INSERT INTO ReviewThx (regionCategory, reviewTitle, reviewContext, writer, reviewDate)
+        VALUES (#{regionCategory}, #{reviewTitle}, #{reviewContext}, #{writer}, #{reviewDate})
     </insert>
 
     <select id="findAll" resultType="ReviewDto">
-        SELECT ID,NAME, KOR_SCORE, ENG_SCORE, MATH_SCORE FROM Review
+        SELECT regionCategory, reviewTitle, reviewContext, writer, reviewDate
+        FROM ReviewThx
     </select>
 
 
     <update id="modify" parameterType="ReviewDto">
-        UPDATE Review SET KOR_SCORE=#{korScore},
-                              ENG_SCORE=#{engScore}, MATH_SCORE=#{mathScore}
-        WHERE ID=#{id}
+        UPDATE ReviewThx SET reviewTitle=#{reviewTitle},
+                             reviewContext=#{reviewContext}, reviewDate=#{reviewDate}
+        WHERE writer = #{writer}
     </update>
 
 
     <delete id="delete" parameterType="ReviewDto">
-        DELETE FROM Review
-        WHERE ID = #{id}
+        DELETE FROM ReviewThx
+        WHERE reviewTitle = #{reviewTitle} + writer = #{writer}
     </delete>
 
-
-    <select id="findSearch" parameterType="ReviewDto" resultType="ReviewDto">
-        SELECT ID,NAME, KOR_SCORE, ENG_SCORE, MATH_SCORE
-        FROM Review
-        <if test='keyword!=null and keyword!=""'>
-            where ${searchCode} = #{keyword} <!-- $표시 -> statement -->
-        </if>
-    </select>
 
 </mapper>

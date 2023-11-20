@@ -4,9 +4,9 @@
 <mapper namespace="com.sona.gi.model.admin.mapper.AdminMapper">
 
     <!-- 보육시설 변경 요청 -->
-    <select id="requestAdmin" parameterType="AdminDto" resultType="AdminDto">
-        SELECT ID, MANAGERNAME, ADTEL, ADNAME, ADDRESS, INTRODUCTION
-        FROM Admin
-    </select>
+    <insert id="requestAdmin" parameterType="AdminDto" >
+        Insert INTO Admin (ID, MANAGERNAME, ADTEL, ADNAME, ADDRESS, INTRODUCTION)
+        VALUES (#{id},#{managerName},#{adTel},#{adName},#{address},#{introduction})
+    </insert>
 
 </mapper>

@@ -15,8 +15,8 @@ public class AdminController {
     private AdminService adminService;
 
     @PostMapping("/requestAdmin")
-    public List<AdminDto> requestAdmin(@RequestBody AdminDto adminDto){
-        List<AdminDto> list = adminService.requestAdmin(adminDto);
-        return list;
+    public int requestAdmin(@RequestBody AdminDto adminDto){
+        int resultCnt  = adminService.requestAdmin(adminDto);
+        return resultCnt;
     }
 }

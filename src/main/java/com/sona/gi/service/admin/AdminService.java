@@ -5,6 +5,6 @@ import java.util.List;
 
 public interface AdminService {
 
-    List<AdminDto> requestAdmin(AdminDto adminDto);
+    int requestAdmin(AdminDto adminDto);
 
 }
