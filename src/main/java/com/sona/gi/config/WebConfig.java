@@ -1,4 +1,4 @@
-package com.sona.gi;
+package com.sona.gi.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
