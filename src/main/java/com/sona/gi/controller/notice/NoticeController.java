@@ -29,7 +29,6 @@ public class NoticeController {
     @GetMapping("/findAll")
     public List<NoticeDto> findAll(){
         List<NoticeDto> list = noticeService.findAll();
-        System.out.println(list.toArray());
         return list;
     }
 
