@@ -5,8 +5,8 @@
 
     <!-- 보육시설 변경 요청 -->
     <insert id="requestAdmin" parameterType="AdminDto" >
-        Insert INTO Admin (ID, MANAGERNAME, ADTEL, ADNAME, ADDRESS, INTRODUCTION)
-        VALUES (#{id},#{managerName},#{adTel},#{adName},#{address},#{introduction})
+        Insert INTO Admin (ID, MANAGERNAME, ADTEL, ADNAME, ADDRESS, INTRODUCTION, totalHc)
+        VALUES (#{id},#{managerName},#{adTel},#{adName},#{address},#{introduction}, #{totalHc})
     </insert>
 
 </mapper>

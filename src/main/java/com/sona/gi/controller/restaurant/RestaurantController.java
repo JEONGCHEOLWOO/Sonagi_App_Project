@@ -28,29 +28,20 @@ public class RestaurantController {
     private RestaurantService restaurantService;
 
     @PostMapping("/login")
-    public int login(@RequestBody RestaurantDto restaurantDto){
+    public List<RestaurantDto> login(@RequestBody RestaurantDto restaurantDto){
         List<RestaurantDto> list = restaurantService.login(restaurantDto);
 
-        if(!list.isEmpty()){
-            return 1;
-        }else{
-            return 0;
-        }
+        return list;
     }
 
     @PostMapping("/regist")
-    public HashMap<String, Object> regist(@RequestBody RestaurantDto restaurantDto) throws IOException {
-        HashMap<String,Object> mv = new HashMap<>();
-        System.out.println(restaurantDto.getbNum().toString());
+    public int regist(@RequestBody RestaurantDto restaurantDto) throws IOException {
         boolean test = check(restaurantDto.getbNum());
-
         if(test == true){
             int resultCnt = restaurantService.regist(restaurantDto);
-            mv.put("result",resultCnt);
-            return mv;
+            return resultCnt;
         }else{
-            mv.put("result", 0);
-            return mv;
+            return 0;
         }
     }
 
@@ -141,13 +132,13 @@ public class RestaurantController {
         if (dataNode != null && dataNode.isArray() && dataNode.size() > 0) {
             String b_stt_cd = dataNode.get(0).get("b_stt_cd").asText();
 
-            if ("01".equals(b_stt_cd)) {
+            if (b_stt_cd.equals("01")) {
                 System.out.println("현재 사업 중인 사업자 번호입니다.");
                 return true;
-            } else if ("02".equals(b_stt_cd)) {
+            } else if (b_stt_cd.equals("02")) {
                 System.out.println("휴/폐업한 사업자 번호입니다.");
                 return false;
-            } else if ("03".equals(b_stt_cd)) {
+            } else if (b_stt_cd.equals("03")) {
                 System.out.println("등록되지 않은 사업자 번호입니다.");
                 return false;
             }

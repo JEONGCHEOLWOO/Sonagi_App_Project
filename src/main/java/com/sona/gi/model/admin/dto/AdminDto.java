@@ -13,6 +13,8 @@ public class AdminDto {
 
     private String introduction;
 
+    private int totalHc;
+
     public String getId() {
         return id;
     }
@@ -59,5 +61,13 @@ public class AdminDto {
 
     public void setIntroduction(String introduction) {
         this.introduction = introduction;
+    }
+
+    public int getTotalHc() {
+        return totalHc;
+    }
+
+    public void setTotalHc(int totalHc) {
+        this.totalHc = totalHc;
     }
 }
