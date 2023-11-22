@@ -34,11 +34,9 @@ public class MemberController {
     }
 
     @PostMapping("/regist")
-    public HashMap<String, Object> regist(@RequestBody MemberDto memberDto){
-        HashMap<String,Object> mv = new HashMap<>();
+    public int regist(@RequestBody MemberDto memberDto){
         int resultCnt = memberService.regist(memberDto);
-        mv.put("result",resultCnt);
-        return mv;
+        return resultCnt;
     }
 
     //    @RequestMapping(method = RequestMethod.POST, path = "/postMethod")
