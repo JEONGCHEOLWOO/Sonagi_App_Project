@@ -10,6 +10,8 @@ public interface NoticeMapper {
 
     int regist(NoticeDto noticeDto);
     List<NoticeDto> findAll();
+    
+    List<NoticeDto> textNumSearch();
     int modify(NoticeDto noticeDto);
 
     int delete(NoticeDto noticeDto);

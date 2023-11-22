@@ -21,6 +21,8 @@ public class NoticeServiceImpl implements NoticeService {
     public List<NoticeDto> findAll() {
         return noticeMapper.findAll();
     }
+    @Override
+    public List<NoticeDto> textNumSearch() { return noticeMapper.textNumSearch(); }
 
     @Override
     public int modify(NoticeDto noticeDto) {

@@ -32,6 +32,12 @@ public class NoticeController {
         return list;
     }
 
+    @GetMapping("/textNumSearch")
+    public List<NoticeDto> textNumSearch(){
+        List<NoticeDto> list = noticeService.textNumSearch();
+        return list;
+    }
+
     //검색 get, 수정 삭제 post
     @PostMapping("/modify")
     public HashMap<String,Object> modify(@RequestBody NoticeDto noticeDto){

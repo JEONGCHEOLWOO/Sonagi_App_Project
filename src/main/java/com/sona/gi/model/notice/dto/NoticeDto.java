@@ -9,6 +9,8 @@ public class NoticeDto {
 
     private String noticeDate;
 
+    private boolean noticeIdentify;
+
     public String getId() {
         return id;
     }
@@ -47,5 +49,13 @@ public class NoticeDto {
 
     public void setNoticeDate(String noticeDate) {
         this.noticeDate = noticeDate;
+    }
+
+    public boolean isNoticeIdentify() {
+        return noticeIdentify;
+    }
+
+    public void setNoticeIdentify(boolean noticeIdentify) {
+        this.noticeIdentify = noticeIdentify;
     }
 }

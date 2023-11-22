@@ -5,26 +5,33 @@
 
     <!-- 공지사항 등록 -->
     <insert id="regist" parameterType="NoticeDto">
-        INSERT INTO Notice (id, textNum, title, context, noticeDate)
-        VALUES (#{id},#{textNum}, #{title}, #{context}, #{noticeDate})
+        INSERT INTO Notice (id, textNum, title, context, noticeDate, noticeIdentify)
+        VALUES (#{id},#{textNum}, #{title}, #{context}, CURDATE(), #{noticeIdentify})
     </insert>
 
     <!-- 공지사항 전체 검색 -->
     <select id="findAll" resultType="NoticeDto">
-        SELECT id, textNum, title, context, noticeDate
+        SELECT id, textNum, title, context, noticeDate, noticeIdentify
         FROM Notice
+    </select>
+
+    <!-- 공지사항 전체 검색 -->
+    <select id="textNumSearch" resultType="NoticeDto">
+        SELECT id, textNum, title, context, noticeDate, noticeIdentify
+        FROM Notice
+        WHERE textNum=#{textNum}
     </select>
 
     <!-- 공지사항 수정 -->
     <update id="modify" parameterType="NoticeDto">
-        UPDATE Notice SET title=#{title}, context=#{context}, noticeDate=#{noticeDate}
-        WHERE id=#{id}
+        UPDATE Notice SET title=#{title}, context=#{context}, noticeDate=CURDATE()
+        WHERE textNum=#{textNum}
     </update>
 
     <!-- 공지사항 삭제 -->
     <delete id="delete" parameterType="NoticeDto">
         DELETE FROM Notice
-        WHERE title=#{title}
+        WHERE textNum=#{textNum}
     </delete>
 
 </mapper>
