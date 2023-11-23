@@ -15,7 +15,9 @@ public class ReviewDto {
     //리뷰 내용
     private String reviewContext;
 
-    private String writer;
+    private String donator;
+    private String receiver;
+
 
     private Date reviewDate;
 
@@ -43,19 +45,27 @@ public class ReviewDto {
         this.reviewContext = reviewContext;
     }
 
-    public String getWriter() {
-        return writer;
-    }
-
-    public void setWriter(String writer) {
-        this.writer = writer;
-    }
-
     public Date getReviewDate() {
         return reviewDate;
     }
 
     public void setReviewDate(Date reviewDate) {
         this.reviewDate = reviewDate;
+    }
+
+    public String getDonator() {
+        return donator;
+    }
+
+    public void setDonator(String donator) {
+        this.donator = donator;
+    }
+
+    public String getReceiver() {
+        return receiver;
+    }
+
+    public void setReceiver(String receiver) {
+        this.receiver = receiver;
     }
 }
