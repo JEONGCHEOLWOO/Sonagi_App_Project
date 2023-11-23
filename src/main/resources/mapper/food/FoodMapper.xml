@@ -6,18 +6,18 @@
 
 
     <insert id="regist" parameterType="FoodDto">
-        INSERT INTO Food (ID, FOODNAME, FOODAMONUT, FOODPRICE, FOODTEL, FOODADDRESS, FOODGIVER, FOODIMAGE)
-        VALUES (#{id}, #{foodName}, #{foodAmount}, #{foodPrice}, #{foodTel}, #{foodAddress}, #{foodGiver}, #{fooImage})
+        INSERT INTO Food (ID, FOODNAME, FOODAMONUT, FOODPRICE, FOODTEL, FOODADDRESS, FOODGIVER, FOODIMAGE, FOODUPLOADTIME)
+        VALUES (#{id}, #{foodName}, #{foodAmount}, #{foodPrice}, #{foodTel}, #{foodAddress}, #{foodGiver}, #{fooImage}, NOW())
     </insert>
 
     <select id="findAll" resultType="FoodDto">
-        SELECT FOODNAME, FOODAMONUT, FOODPRICE, FOODTEL, FOODADDRESS, FOODGIVER, FOODIMAGE
+        SELECT FOODNAME, FOODAMONUT, FOODPRICE, FOODTEL, FOODADDRESS, FOODGIVER, FOODIMAGE, FOODUPLOADTIME
         FROM Food
     </select>
 
 
     <update id="modify" parameterType="FoodDto">
-        UPDATE Food SET FOODNAME=#{foodName}, FOODAMONUT=#{foodAmount}, FOODPRICE=#{foodPrice}, FOODIMAGE=#{fooImage}
+        UPDATE Food SET FOODNAME=#{foodName}, FOODAMONUT=#{foodAmount}, FOODPRICE=#{foodPrice}, FOODIMAGE=#{fooImage}, FOODUPLOADTIME=NOW()
         WHERE ID=#{id}
     </update>
 

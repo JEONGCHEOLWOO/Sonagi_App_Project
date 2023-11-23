@@ -26,6 +26,8 @@ public class FoodDto {
 
     private String foodImage;
 
+    private String foodUploadTime;
+
     public String getId() {
         return id;
     }
@@ -88,5 +90,13 @@ public class FoodDto {
 
     public void setFoodImage(String foodImage) {
         this.foodImage = foodImage;
+    }
+
+    public String getFoodUploadTime() {
+        return foodUploadTime;
+    }
+
+    public void setFoodUploadTime(String foodUploadTime) {
+        this.foodUploadTime = foodUploadTime;
     }
 }
