@@ -12,4 +12,6 @@ public interface NoticeService {
     int modify(NoticeDto noticeDto);
 
     int delete(NoticeDto noticeDto);
+    List<NoticeDto> findByNum(String id);
+
 }

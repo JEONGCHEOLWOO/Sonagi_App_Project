@@ -14,7 +14,7 @@
     <!-- 피기부자(보육시설) 회원 등록 -->
     <insert id="regist" parameterType="MemberDto">
         INSERT INTO Member (ID, PASSWORD, MANAGERNAME, PHONENUM, ADTEL, ADNAME, ADDRESS, TOTALHC, CURRHC, INTRODUCTION, PROFILEIMAGE)
-        VALUES (#{id},#{password},#{managerName},#{phoneNum},#{adTel},#{adName},#{address},#{totalHc},#{currHc},#{introduction},#{PROFILEIMAGE})
+        VALUES (#{id},#{password},#{managerName},#{phoneNum},#{adTel},#{adName},#{address},#{totalHc},#{currHc},#{introduction},#{profileImage})
     </insert>
 
     <!-- 피기부자(보육시설) 전체 정보 검색 -->

@@ -34,4 +34,11 @@
         WHERE textNum=#{textNum}
     </delete>
 
+    <!-- 공지사항 전체 검색 -->
+    <select id="findbyNum" resultType="NoticeDto">
+        SELECT id, textNum, title, context, noticeDate, noticeIdentify
+        FROM Notice
+        WHERE id=#{id}
+    </select>
+
 </mapper>

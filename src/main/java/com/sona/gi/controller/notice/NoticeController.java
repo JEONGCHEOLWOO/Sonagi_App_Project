@@ -54,4 +54,9 @@ public class NoticeController {
         mv.put("resultCnt",resultCnt);
         return mv;
     }
+
+    @GetMapping("/{id}")
+    public List<NoticeDto> findByNum(@PathVariable String id) {
+        return noticeService.findByNum(id);
+    }
 }

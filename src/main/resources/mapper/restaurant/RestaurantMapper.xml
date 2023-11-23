@@ -5,15 +5,15 @@
 
     <!-- 기부자(음식점) 회원 로그인 -->
     <select id="login" parameterType="RestaurantDto" resultType="RestaurantDto">
-        SELECT ID, PASSWORD, NAME, PHONENUM, ADTEL, ADNAME, ADDRESS, BNUM
+        SELECT ID, PASSWORD, NAME, PHONENUM, ADTEL, ADNAME, ADDRESS, BNUM, PROFILEIMAGE
         FROM Restaurant
         WHERE ID=#{id} AND PASSWORD=#{password}
     </select>
 
     <!-- 기부자(음식점) 회원 등록 -->
     <insert id="regist" parameterType="RestaurantDto">
-        INSERT INTO Restaurant (ID, PASSWORD, NAME, PHONENUM, ADTEL, ADNAME, ADDRESS, BNUM)
-        VALUES (#{id},#{password},#{name},#{phoneNum},#{adTel},#{adName},#{address},#{bNum})
+        INSERT INTO Restaurant (ID, PASSWORD, NAME, PHONENUM, ADTEL, ADNAME, ADDRESS, BNUM, PROFILEIMAGE)
+        VALUES (#{id},#{password},#{name},#{phoneNum},#{adTel},#{adName},#{address},#{bNum}, #{profileImage})
     </insert>
 
     <!-- 기부자(음식점) 전체 정보 검색 -->
@@ -24,7 +24,7 @@
     <!-- 기부자(음식점) 정보 수정 -->
     <update id="modify" parameterType="RestaurantDto">
         UPDATE Restaurant SET PASSWORD=#{password},
-                              ADDRESS=#{address}, ADTEL=#{adTel}, ADNAME=#{adName}
+                              ADDRESS=#{address}, ADTEL=#{adTel}, ADNAME=#{adName}, PROFILEIMAGE=#{profileImage}
         WHERE ID=#{id}
     </update>
 

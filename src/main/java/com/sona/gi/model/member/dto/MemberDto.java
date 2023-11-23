@@ -25,6 +25,8 @@ public class MemberDto {
 
     private String introduction;
 
+    private String profileImage;
+
     public String getId() {
         return id;
     }
@@ -103,5 +105,13 @@ public class MemberDto {
 
     public void setIntroduction(String introduction) {
         this.introduction = introduction;
+    }
+
+    public String getProfileImage() {
+        return profileImage;
+    }
+
+    public void setProfileImage(String profileImage) {
+        this.profileImage = profileImage;
     }
 }

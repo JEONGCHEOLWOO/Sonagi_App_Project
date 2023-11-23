@@ -19,6 +19,8 @@ public class RestaurantDto {
     //사업자 등록 번호
     private String bNum;
 
+    private String profileImage;
+
     public String getId() {
         return id;
     }
@@ -81,5 +83,13 @@ public class RestaurantDto {
 
     public void setbNum(String bNum) {
         this.bNum = bNum;
+    }
+
+    public String getProfileImage() {
+        return profileImage;
+    }
+
+    public void setProfileImage(String profileImage) {
+        this.profileImage = profileImage;
     }
 }
