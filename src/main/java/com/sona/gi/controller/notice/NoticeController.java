@@ -33,8 +33,8 @@ public class NoticeController {
     }
 
     @GetMapping("/textNumSearch")
-    public List<NoticeDto> textNumSearch(){
-        List<NoticeDto> list = noticeService.textNumSearch();
+    public List<NoticeDto> textNumSearch(@RequestBody String textNum){
+        List<NoticeDto> list = noticeService.textNumSearch(textNum);
         return list;
     }
 

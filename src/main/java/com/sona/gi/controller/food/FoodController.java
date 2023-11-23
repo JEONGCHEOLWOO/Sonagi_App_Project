@@ -25,22 +25,17 @@ public class FoodController {
 
 
     @PostMapping("/regist")
-    public HashMap<String, Object> regist(@RequestBody FoodDto foodDto){
-        HashMap<String,Object> mv = new HashMap<>();
-
+    public int regist(@RequestBody FoodDto foodDto){
         int resultCnt = foodService.regist(foodDto);
-        mv.put("result",resultCnt);
-        return mv;
+        return resultCnt;
     }
 
     //    @RequestMapping(method = RequestMethod.POST, path = "/postMethod")
     // 아래랑 동일
     @GetMapping("/findAll")
-    public HashMap<String,Object> findAll(){
-        HashMap<String,Object> mv = new HashMap<>();
+    public List<FoodDto> findAll(){
         List<FoodDto> list = foodService.findAll();
-        mv.put("list",list);
-        return mv;
+        return list;
     }
 
     //검색 get, 수정 삭제 post

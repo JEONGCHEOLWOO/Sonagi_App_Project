@@ -11,7 +11,7 @@ public interface NoticeMapper {
     int regist(NoticeDto noticeDto);
     List<NoticeDto> findAll();
 
-    List<NoticeDto> textNumSearch();
+    List<NoticeDto> textNumSearch(String textNum);
     int modify(NoticeDto noticeDto);
 
     int delete(NoticeDto noticeDto);

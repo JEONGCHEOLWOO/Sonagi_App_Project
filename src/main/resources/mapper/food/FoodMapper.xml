@@ -6,34 +6,26 @@
 
 
     <insert id="regist" parameterType="FoodDto">
-        INSERT INTO Food (ID)
-        VALUES (#{id})
+        INSERT INTO Food (ID, FOODNAME, FOODAMONUT, FOODPRICE, FOODTEL, FOODADDRESS, FOODGIVER, FOODIMAGE)
+        VALUES (#{id}, #{foodName}, #{foodAmount}, #{foodPrice}, #{foodTel}, #{foodAddress}, #{foodGiver}, #{fooImage})
     </insert>
 
     <select id="findAll" resultType="FoodDto">
-        SELECT ID,NAME, KOR_SCORE, ENG_SCORE, MATH_SCORE FROM Food
+        SELECT FOODNAME, FOODAMONUT, FOODPRICE, FOODTEL, FOODADDRESS, FOODGIVER, FOODIMAGE
+        FROM Food
     </select>
 
 
     <update id="modify" parameterType="FoodDto">
-        UPDATE Food SET KOR_SCORE=#{korScore},
-                            ENG_SCORE=#{engScore}, MATH_SCORE=#{mathScore}
+        UPDATE Food SET FOODNAME=#{foodName}, FOODAMONUT=#{foodAmount}, FOODPRICE=#{foodPrice}, FOODIMAGE=#{fooImage}
         WHERE ID=#{id}
     </update>
 
 
     <delete id="delete" parameterType="FoodDto">
         DELETE FROM Food
-        WHERE ID = #{id}
+        WHERE ID=#{id} AND FOODNAME=#{foodName}
     </delete>
 
-
-    <select id="findSearch" parameterType="FoodDto" resultType="FoodDto">
-        SELECT ID,NAME, KOR_SCORE, ENG_SCORE, MATH_SCORE
-        FROM Food
-        <if test='keyword!=null and keyword!=""'>
-            where ${searchCode} = #{keyword} <!-- $표시 -> statement -->
-        </if>
-    </select>
 
 </mapper>
