@@ -13,7 +13,7 @@ public class FoodDto {
     private String foodAmount;
 
     //1인분당 음식 가격
-    private String foodPrice;
+    private int foodPrice;
 
     //가게 전화번호
     private String foodTel;
@@ -52,11 +52,11 @@ public class FoodDto {
         this.foodAmount = foodAmount;
     }
 
-    public String getFoodPrice() {
+    public int getFoodPrice() {
         return foodPrice;
     }
 
-    public void setFoodPrice(String foodPrice) {
+    public void setFoodPrice(int foodPrice) {
         this.foodPrice = foodPrice;
     }
 

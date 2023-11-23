@@ -6,7 +6,7 @@
 
 
     <insert id="regist" parameterType="FoodDto">
-        INSERT INTO Food (ID, FOODNAME, FOODAMONUT, FOODPRICE, FOODTEL, FOODADDRESS, FOODGIVER, FOODIMAGE, FOODUPLOADTIME)
+        INSERT INTO Food (ID, FOODNAME, FOODAMOUNT, FOODPRICE, FOODTEL, FOODADDRESS, FOODGIVER, FOODIMAGE, FOODUPLOADTIME)
         VALUES (#{id}, #{foodName}, #{foodAmount}, #{foodPrice}, #{foodTel}, #{foodAddress}, #{foodGiver}, #{foodImage}, NOW())
     </insert>
 
