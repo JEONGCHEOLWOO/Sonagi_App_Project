@@ -19,7 +19,7 @@
 
     <!-- 피기부자(보육시설) 전체 정보 검색 -->
     <select id="findAll" resultType="MemberDto">
-        SELECT ID, PASSWORD, MANAGERNAME, PHONENUM, ADTEL, ADNAME, ADDRESS, TOTALHC, CURRHC, INTRODUCTION FROM Member
+        SELECT ID, PASSWORD, MANAGERNAME, PHONENUM, ADTEL, ADNAME, ADDRESS, TOTALHC, CURRHC, INTRODUCTION, PROFILEIMAGE FROM Member
     </select>
 
     <!-- 피기부자(보육시설) 정보 수정 -->
