@@ -17,11 +17,9 @@ public class NoticeController {
 
 
     @PostMapping("/regist")
-    public HashMap<String, Object> regist(@RequestBody NoticeDto noticeDto){
-        HashMap<String,Object> mv = new HashMap<>();
+    public int regist(@RequestBody NoticeDto noticeDto){
         int resultCnt = noticeService.regist(noticeDto);
-        mv.put("result",resultCnt);
-        return mv;
+        return resultCnt;
     }
 
     // @RequestMapping(method = RequestMethod.POST, path = "/postMethod")

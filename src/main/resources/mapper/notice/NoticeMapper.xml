@@ -5,8 +5,8 @@
 
     <!-- 공지사항 등록 -->
     <insert id="regist" parameterType="NoticeDto">
-        INSERT INTO Notice (id, textNum, title, context, noticeDate, noticeIdentify)
-        VALUES (#{id},#{textNum}, #{title}, #{context}, NOW(), #{noticeIdentify})
+        INSERT INTO Notice (id, title, context, noticeDate, noticeIdentify)
+        VALUES (#{id}, #{title}, #{context}, NOW(), #{noticeIdentify})
     </insert>
 
     <!-- 공지사항 전체 검색 -->
@@ -15,7 +15,7 @@
         FROM Notice
     </select>
 
-    <!-- 공지사항 전체 검색 -->
+    <!-- 공지사항 번호로 검색 -->
     <select id="textNumSearch" resultType="NoticeDto">
         SELECT id, textNum, title, context, noticeDate, noticeIdentify
         FROM Notice
