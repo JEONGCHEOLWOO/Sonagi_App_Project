@@ -18,7 +18,7 @@
 
     <!-- 기부자(음식점) 전체 정보 검색 -->
     <select id="findAll" resultType="RestaurantDto">
-        SELECT ID, PASSWORD, NAME, PHONENUM, ADTEL, ADNAME, ADDRESS, BNUM FROM Restaurant
+        SELECT ID, PASSWORD, NAME, PHONENUM, ADTEL, ADNAME, ADDRESS, BNUM, PROFILEIMAGE FROM Restaurant
     </select>
 
     <!-- 기부자(음식점) 정보 수정 -->
