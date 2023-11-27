@@ -67,7 +67,7 @@ public class MemberController {
     }
 
     @PostMapping("/files") // 파일, 파이어베이스에 저장할 파일이름 필요!
-    public String uploadFile(@RequestParam("file") MultipartFile file, String nameFile)
+    public String uploadFile(@RequestParam("file") MultipartFile file,@RequestParam("nameFile") String nameFile)
             throws IOException, FirebaseAuthException {
         if (file.isEmpty()) {
             return "is empty";
