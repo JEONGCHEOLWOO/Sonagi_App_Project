@@ -37,4 +37,9 @@ public class MemberServiceImpl implements MemberService{
 
         @Override
         public List<MemberDto> login(MemberDto memberDto) { return memberMapper.login(memberDto); }
+
+        @Override
+        public int addToken(MemberDto memberDto) {
+                return memberMapper.addToken(memberDto);
+        }
 }

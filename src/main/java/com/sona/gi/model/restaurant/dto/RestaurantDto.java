@@ -21,6 +21,8 @@ public class RestaurantDto {
 
     private String profileImage;
 
+    private String token;
+
     public String getId() {
         return id;
     }
@@ -91,5 +93,13 @@ public class RestaurantDto {
 
     public void setProfileImage(String profileImage) {
         this.profileImage = profileImage;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }

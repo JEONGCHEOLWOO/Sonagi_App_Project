@@ -17,4 +17,6 @@ public interface MemberMapper {
         int findSearch(MemberDto memberDto);
 
         List<MemberDto> login(MemberDto memberDto);
+
+        int addToken(MemberDto memberDto);
 }

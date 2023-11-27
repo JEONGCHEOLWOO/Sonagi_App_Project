@@ -41,7 +41,14 @@
         SELECT ID, PASSWORD
         FROM Member
         where ID = #{id} AND PASSWORD = #{password} <!-- $표시 -> statement -->
-
     </select>
+
+    <!-- 피기부자(보육시설) 토큰등록 -->
+    <update id="addToken" parameterType="MemberDto">
+        UPDATE Member
+        SET TOKEN=#{token}
+        WHERE ID = #{id} AND MANAGERNAME = #{managerName}
+    </update>
+
 
 </mapper>

@@ -10,4 +10,5 @@ public interface RestaurantService {
     int delete(RestaurantDto restaurantDto);
     int findSearch(RestaurantDto restaurantDto);
     List<RestaurantDto> login(RestaurantDto restaurantDto);
+    int addToken(RestaurantDto restaurantDto);
 }

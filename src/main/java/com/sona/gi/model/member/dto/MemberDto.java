@@ -27,6 +27,8 @@ public class MemberDto {
 
     private String profileImage;
 
+    private String token;
+
     public String getId() {
         return id;
     }
@@ -113,5 +115,13 @@ public class MemberDto {
 
     public void setProfileImage(String profileImage) {
         this.profileImage = profileImage;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }

@@ -10,8 +10,8 @@ public interface MemberService {
     int modify(MemberDto memberDto);
     int delete(MemberDto memberDto);
     int findSearch(MemberDto memberDto);
-
     List<MemberDto> login(MemberDto memberDto);
+    int addToken(MemberDto memberDto);
 
 
 }

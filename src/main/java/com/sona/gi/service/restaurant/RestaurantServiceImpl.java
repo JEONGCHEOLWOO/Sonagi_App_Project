@@ -33,4 +33,9 @@ public class RestaurantServiceImpl implements RestaurantService{
 
     @Override
     public List<RestaurantDto> login(RestaurantDto restaurantDto) { return restaurantMapper.login(restaurantDto); }
+
+    @Override
+    public int addToken(RestaurantDto restaurantDto) {
+        return restaurantMapper.addToken(restaurantDto);
+    }
 }

@@ -75,4 +75,11 @@ public class MemberController {
         return fireBaseService.uploadFiles(file, nameFile);
     }
 
+    @PostMapping("/token")
+    public int addToken(@RequestBody MemberDto memberDto){
+        int resultCnt = memberService.addToken(memberDto);
+
+        return resultCnt;
+    }
+
 }

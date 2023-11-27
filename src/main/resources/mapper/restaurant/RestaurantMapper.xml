@@ -42,4 +42,11 @@
 
     </select>
 
+    <!-- 피기부자(보육시설) 토큰등록 -->
+    <update id="addToken" parameterType="RestaurantDto">
+        UPDATE Restaurant
+        SET TOKEN=#{token}
+        WHERE ID = #{id} AND NAME = #{name}
+    </update>
+
 </mapper>

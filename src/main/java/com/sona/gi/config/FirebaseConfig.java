@@ -8,7 +8,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 
-import java.io.FileInputStream;
 import java.io.InputStream;
 
 @Configuration
