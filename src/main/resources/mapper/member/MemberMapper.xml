@@ -5,7 +5,7 @@
 
     <!-- 피기부자(보육시설) 회원 로그인 -->
     <select id="login" parameterType="MemberDto" resultType="MemberDto">
-        SELECT ID, PASSWORD, MANAGERNAME, PHONENUM, ADTEL, ADNAME, ADDRESS, TOTALHC, CURRHC, INTRODUCTION, PROFILEIMAGE
+        SELECT ID, PASSWORD, MANAGERNAME, PHONENUM, ADTEL, ADNAME, ADDRESS, TOTALHC, CURRHC, INTRODUCTION, PROFILEIMAGE, TOKEN
         FROM Member
         WHERE ID=#{id} AND PASSWORD=#{password}
     </select>
@@ -13,13 +13,13 @@
 
     <!-- 피기부자(보육시설) 회원 등록 -->
     <insert id="regist" parameterType="MemberDto">
-        INSERT INTO Member (ID, PASSWORD, MANAGERNAME, PHONENUM, ADTEL, ADNAME, ADDRESS, TOTALHC, CURRHC, INTRODUCTION, PROFILEIMAGE)
-        VALUES (#{id},#{password},#{managerName},#{phoneNum},#{adTel},#{adName},#{address},#{totalHc},#{currHc},#{introduction},#{profileImage})
+        INSERT INTO Member (ID, PASSWORD, MANAGERNAME, PHONENUM, ADTEL, ADNAME, ADDRESS, TOTALHC, CURRHC, INTRODUCTION, PROFILEIMAGE, TOKEN)
+        VALUES (#{id},#{password},#{managerName},#{phoneNum},#{adTel},#{adName},#{address},#{totalHc},#{currHc},#{introduction},#{profileImage}, NULL)
     </insert>
 
     <!-- 피기부자(보육시설) 전체 정보 검색 -->
     <select id="findAll" resultType="MemberDto">
-        SELECT ID, PASSWORD, MANAGERNAME, PHONENUM, ADTEL, ADNAME, ADDRESS, TOTALHC, CURRHC, INTRODUCTION, PROFILEIMAGE FROM Member
+        SELECT ID, PASSWORD, MANAGERNAME, PHONENUM, ADTEL, ADNAME, ADDRESS, TOTALHC, CURRHC, INTRODUCTION, PROFILEIMAGE, TOKEN FROM Member
     </select>
 
     <!-- 피기부자(보육시설) 정보 수정 -->
