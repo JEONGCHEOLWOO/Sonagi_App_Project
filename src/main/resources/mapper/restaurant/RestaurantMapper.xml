@@ -46,7 +46,7 @@
     <update id="addToken" parameterType="RestaurantDto">
         UPDATE Restaurant
         SET TOKEN=#{token}
-        WHERE ID = #{id} AND NAME = #{name}
+        WHERE ID = #{id}
     </update>
 
 </mapper>

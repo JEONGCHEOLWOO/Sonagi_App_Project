@@ -47,7 +47,7 @@
     <update id="addToken" parameterType="MemberDto">
         UPDATE Member
         SET TOKEN=#{token}
-        WHERE ID = #{id} AND MANAGERNAME = #{managerName}
+        WHERE ID = #{id}
     </update>
 
 
