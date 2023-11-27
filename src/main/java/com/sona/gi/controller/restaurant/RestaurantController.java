@@ -32,14 +32,14 @@ public class RestaurantController {
     @Autowired
     private FireBaseService fireBaseService;
 
-    @PostMapping("/login")
+    @PostMapping("/login") // id, password 필요!
     public List<RestaurantDto> login(@RequestBody RestaurantDto restaurantDto){
         List<RestaurantDto> list = restaurantService.login(restaurantDto);
 
         return list;
     }
 
-    @PostMapping("/regist")
+    @PostMapping("/regist") // id, password, name, phoneNum, adTel, adName, address, bNum, profileImage 필요!
     public int regist(@RequestBody RestaurantDto restaurantDto) throws IOException {
         boolean test = check(restaurantDto.getbNum());
         if(test == true){
@@ -61,7 +61,7 @@ public class RestaurantController {
     }
 
     //검색 get, 수정 삭제 post
-    @PostMapping("/modify")
+    @PostMapping("/modify") // id, password, adTel, adName, address, profileImage 필요!
     public HashMap<String,Object> modify(@RequestBody RestaurantDto restaurantDto){
         HashMap<String,Object> mv = new HashMap<>();
         int resultCnt= restaurantService.modify(restaurantDto);
@@ -69,7 +69,7 @@ public class RestaurantController {
         return mv;
     }
 
-    @PostMapping("/delete")
+    @PostMapping("/delete") // id만 필요!
     public HashMap<String,Object> delete(@RequestBody RestaurantDto restaurantDto){
         HashMap<String,Object> mv = new HashMap<>();
         int resultCnt= restaurantService.delete(restaurantDto);
@@ -77,7 +77,7 @@ public class RestaurantController {
         return mv;
     }
 
-    @PostMapping("/files")
+    @PostMapping("/files") // 파일, 파이어베이스에 저장할 파일이름 필요!
     public String uploadFile(@RequestParam("file") MultipartFile file, String nameFile)
             throws IOException, FirebaseAuthException {
         if (file.isEmpty()) {
@@ -85,7 +85,7 @@ public class RestaurantController {
         }
         return fireBaseService.uploadFiles(file, nameFile);
     }
-    @PostMapping("/token")
+    @PostMapping("/token") // id, managerName, token 필요!
     public int addToken(@RequestBody RestaurantDto restaurantDto){
         int resultCnt = restaurantService.addToken(restaurantDto);
 

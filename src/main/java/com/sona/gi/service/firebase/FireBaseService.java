@@ -3,7 +3,6 @@ package com.sona.gi.service.firebase;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -25,14 +24,13 @@ public class FireBaseService {
         Bucket bucket = StorageClient.getInstance().bucket(firebaseBucket);
         InputStream content = new ByteArrayInputStream(file.getBytes());
 
-        // 파일 이름을 URL로 인코딩하여 사용
-        String encodedFileName = URLEncoder.encode(nameFile, StandardCharsets.UTF_8.toString());
+        // 파일 업로드
+        BlobInfo blobInfo = bucket.create(nameFile, content, file.getContentType());
 
-        BlobInfo blobInfo = bucket.create(encodedFileName, content, file.getContentType());
+        // 이미지 URL 생성
+        String imageUrl = "https://firebasestorage.googleapis.com/v0/b/" + firebaseBucket + "/o/"
+                + blobInfo.getName() + "?alt=media";
 
-        // 파일의 URL 생성
-        String downloadUrl = "https://storage.googleapis.com/" + firebaseBucket + "/" + encodedFileName;
-
-        return downloadUrl;
+        return imageUrl;
     }
 }

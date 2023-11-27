@@ -26,14 +26,14 @@ public class MemberController {
     @Autowired
     private FireBaseService fireBaseService;
 
-    @PostMapping("/login")
+    @PostMapping("/login") // id, password 필요!
     public List<MemberDto> login(@RequestBody MemberDto memberDto){
         List<MemberDto> list = memberService.login(memberDto);
 
         return list;
     }
 
-    @PostMapping("/regist")
+    @PostMapping("/regist") // id, password, managerName, phoneNum, adTel, adName, address, totalHc, currHc, introduction, profileImage 필요!
     public int regist(@RequestBody MemberDto memberDto){
         int resultCnt = memberService.regist(memberDto);
         return resultCnt;
@@ -50,7 +50,7 @@ public class MemberController {
     }
 
     //검색 get, 수정 삭제 post
-    @PostMapping("/modify")
+    @PostMapping("/modify") // id, password, introduction, adTel, adName, address, totalHc, profileImage 필요!
     public HashMap<String,Object> modify(@RequestBody MemberDto memberDto){
         HashMap<String,Object> mv = new HashMap<>();
         int resultCnt= memberService.modify(memberDto);
@@ -58,7 +58,7 @@ public class MemberController {
         return mv;
     }
 
-    @PostMapping("/delete")
+    @PostMapping("/delete") // id만 필요!
     public HashMap<String,Object> delete(@RequestBody MemberDto memberDto){
         HashMap<String,Object> mv = new HashMap<>();
         int resultCnt= memberService.delete(memberDto);
@@ -66,7 +66,7 @@ public class MemberController {
         return mv;
     }
 
-    @PostMapping("/files")
+    @PostMapping("/files") // 파일, 파이어베이스에 저장할 파일이름 필요!
     public String uploadFile(@RequestParam("file") MultipartFile file, String nameFile)
             throws IOException, FirebaseAuthException {
         if (file.isEmpty()) {
@@ -75,7 +75,7 @@ public class MemberController {
         return fireBaseService.uploadFiles(file, nameFile);
     }
 
-    @PostMapping("/token")
+    @PostMapping("/token") // id, managerName, token 필요!
     public int addToken(@RequestBody MemberDto memberDto){
         int resultCnt = memberService.addToken(memberDto);
 

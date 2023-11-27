@@ -5,7 +5,7 @@
 
     <!-- 기부자(음식점) 회원 로그인 -->
     <select id="login" parameterType="RestaurantDto" resultType="RestaurantDto">
-        SELECT ID, PASSWORD, NAME, PHONENUM, ADTEL, ADNAME, ADDRESS, BNUM, PROFILEIMAGE
+        SELECT ID, PASSWORD, NAME, PHONENUM, ADTEL, ADNAME, ADDRESS, BNUM, PROFILEIMAGE, TOKEN
         FROM Restaurant
         WHERE ID=#{id} AND PASSWORD=#{password}
     </select>
