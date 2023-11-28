@@ -30,7 +30,7 @@ public class NotificationController {
 
         // 모든 회원들의 푸시 알림 토큰 수집
         List<String> tokens = allMembers.stream()
-                .map(MemberDto::getToken)
+                .map(MemberDto::getExpotoken)
                 .collect(Collectors.toList());
 
 
