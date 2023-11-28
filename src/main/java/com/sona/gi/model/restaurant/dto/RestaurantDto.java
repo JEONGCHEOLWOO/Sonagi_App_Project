@@ -21,7 +21,8 @@ public class RestaurantDto {
 
     private String profileImage;
 
-    private String token;
+    private String expotoken;
+    private String fcmtoken;
 
     public String getId() {
         return id;
@@ -95,11 +96,19 @@ public class RestaurantDto {
         this.profileImage = profileImage;
     }
 
-    public String getToken() {
-        return token;
+    public String getExpotoken() {
+        return expotoken;
     }
 
-    public void setToken(String token) {
-        this.token = token;
+    public void setExpotoken(String expotoken) {
+        this.expotoken = expotoken;
+    }
+
+    public String getFcmtoken() {
+        return fcmtoken;
+    }
+
+    public void setFcmtoken(String fcmtoken) {
+        this.fcmtoken = fcmtoken;
     }
 }

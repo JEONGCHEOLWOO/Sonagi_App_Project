@@ -11,6 +11,8 @@ import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -77,14 +79,19 @@ public class RestaurantController {
         return mv;
     }
 
-    @PostMapping("/files") // 파일, 파이어베이스에 저장할 파일이름 필요!
-    public String uploadFile(@RequestBody MultipartFile file)
-            throws IOException, FirebaseAuthException {
-        System.out.println("전달 받은 image URL: " + file);
-
-        return fireBaseService.uploadToFirebaseStorage(file);
+    @PostMapping("/files")
+    public ResponseEntity<String> uploadFileToFirebase(
+            @RequestParam("file") MultipartFile file,
+            @RequestParam("nameFile") String nameFile
+    ) {
+        try {
+            String imageUrl = fireBaseService.uploadFiles(file, nameFile);
+            return ResponseEntity.ok(imageUrl);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to upload the file: " + e.getMessage());
+        }
     }
-    @PostMapping("/token") // id, managerName, token 필요!
+    @PostMapping("/token") // id, expotoken, fcmtoken 필요!
     public int addToken(@RequestBody RestaurantDto restaurantDto){
         int resultCnt = restaurantService.addToken(restaurantDto);
 

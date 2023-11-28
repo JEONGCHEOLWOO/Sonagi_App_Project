@@ -46,7 +46,7 @@
     <!-- 피기부자(보육시설) 토큰등록 -->
     <update id="addToken" parameterType="MemberDto">
         UPDATE Member
-        SET TOKEN=#{token}
+        SET EXPOTOKEN=#{expotoken} AND FCMTOKEN=#{fcmtoken}
         WHERE ID = #{id}
     </update>
 

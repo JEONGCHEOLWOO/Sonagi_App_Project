@@ -33,6 +33,7 @@ public class NotificationController {
                 .map(MemberDto::getToken)
                 .collect(Collectors.toList());
 
+
         // 알림 메시지 생성 및 전송
         sendPushNotification(tokens);
 

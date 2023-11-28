@@ -1,45 +1,42 @@
 package com.sona.gi.service.firebase;
-import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 import com.google.auth.oauth2.GoogleCredentials;
+import com.google.cloud.storage.BlobId;
 import com.google.cloud.storage.BlobInfo;
 import com.google.cloud.storage.Storage;
 import com.google.cloud.storage.StorageOptions;
+import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
 @Service
 public class FireBaseService {
+    public String uploadFiles(MultipartFile file, String nameFile) throws IOException {
 
-    public String uploadToFirebaseStorage(MultipartFile file) {
-        try {
-            // Firebase Admin SDK 인증 정보 설정
-            InputStream serviceAccount = getClass().getResourceAsStream("/path/to/serviceAccountKey.json"); // Firebase Admin SDK 인증 파일 경로
-            GoogleCredentials credentials = GoogleCredentials.fromStream(serviceAccount);
-            Storage storage = StorageOptions.newBuilder().setCredentials(credentials).build().getService();
+        // Firebase Admin SDK 인증 정보 설정
+        InputStream serviceAccount = new FileInputStream("F://Intellij Project//Sonagi_App_Project//src//main//resources//serviceAccountKey.json"); // 예시: new FileInputStream("/path/to/firebase/account/key.json");
+        GoogleCredentials credentials = GoogleCredentials.fromStream(serviceAccount);
+        Storage storage = StorageOptions.newBuilder().setCredentials(credentials).build().getService();
 
-            // Firebase Storage 버킷명 설정
-            String bucketName = "your-firebase-storage-bucket-name"; // Firebase Storage 버킷 이름
+        // Firebase Storage 버킷명 설정
+        String bucketName = "sonagi-671d0.appspot.com"; // Firebase Storage 버킷 이름
 
-            // 업로드할 파일명 설정
-            String fileName = "uploaded-image.jpg"; // 업로드할 파일 이름
+        String contentType = file.getContentType();
 
-            // Firebase Storage에 업로드
-            BlobInfo blobInfo = storage.create(
-                    BlobInfo.newBuilder(bucketName, fileName)
-                            .setContentType(file.getContentType())
-                            .build(),
-                    file.getBytes() // MultipartFile을 byte 배열로 변환하여 업로드
-            );
+        // Firebase Storage에 업로드할 이미지 이름 설정
+        String imageName = nameFile;
 
-            // 업로드한 파일의 URL 생성
-            String imageUrl = blobInfo.getMediaLink(); // 업로드한 파일의 URL
+        // Firebase Storage에 이미지 업로드
+        BlobId blobId = BlobId.of(bucketName, imageName);
+        BlobInfo blobInfo = BlobInfo.newBuilder(blobId).setContentType(contentType).build();
+        storage.create(blobInfo, file.getBytes()); // 파일의 바이트 배열을 업로드
 
-            return imageUrl;
-        } catch (IOException e) {
-            e.printStackTrace();
-            // 오류 발생 시 예외 처리
-            return null;
-        }
+        // 이미지 URL 생성
+        String imageUrl = "https://firebasestorage.googleapis.com/v0/b/" + bucketName + "/o/"
+                + blobInfo.getName() + "?alt=media";
+        System.out.println(imageUrl);
+        return imageUrl; // 업로드된 이미지 이름 또는 URL 반환
     }
 }
