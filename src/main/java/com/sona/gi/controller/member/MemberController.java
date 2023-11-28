@@ -67,10 +67,10 @@ public class MemberController {
     }
 
     @PostMapping("/files") // 파일, 파이어베이스에 저장할 파일이름 필요!
-    public String uploadFile(@RequestBody String imageUrl)
+    public String uploadFile(@RequestBody MultipartFile file)
             throws IOException, FirebaseAuthException {
-        System.out.println("전달 받은 image URL: " + imageUrl);
-        return fireBaseService.uploadFiles(imageUrl);
+        System.out.println("전달 받은 image URL: " + file);
+        return fireBaseService.uploadToFirebaseStorage(file);
     }
 
     @PostMapping("/token") // id, managerName, token 필요!
