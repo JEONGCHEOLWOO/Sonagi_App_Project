@@ -5,20 +5,20 @@
 
     <!-- 기부자(음식점) 회원 로그인 -->
     <select id="login" parameterType="RestaurantDto" resultType="RestaurantDto">
-        SELECT ID, PASSWORD, NAME, PHONENUM, ADTEL, ADNAME, ADDRESS, BNUM, PROFILEIMAGE, TOKEN
+        SELECT ID, PASSWORD, NAME, PHONENUM, ADTEL, ADNAME, ADDRESS, BNUM, PROFILEIMAGE, EXPOTOKEN, FCMTOKEN
         FROM Restaurant
         WHERE ID=#{id} AND PASSWORD=#{password}
     </select>
 
     <!-- 기부자(음식점) 회원 등록 -->
     <insert id="regist" parameterType="RestaurantDto">
-        INSERT INTO Restaurant (ID, PASSWORD, NAME, PHONENUM, ADTEL, ADNAME, ADDRESS, BNUM, PROFILEIMAGE)
-        VALUES (#{id},#{password},#{name},#{phoneNum},#{adTel},#{adName},#{address},#{bNum}, #{profileImage})
+        INSERT INTO Restaurant (ID, PASSWORD, NAME, PHONENUM, ADTEL, ADNAME, ADDRESS, BNUM, PROFILEIMAGE, EXPOTOKEN, FCMTOKEN)
+        VALUES (#{id},#{password},#{name},#{phoneNum},#{adTel},#{adName},#{address},#{bNum}, #{profileImage}, NULL, NULL)
     </insert>
 
     <!-- 기부자(음식점) 전체 정보 검색 -->
     <select id="findAll" resultType="RestaurantDto">
-        SELECT ID, PASSWORD, NAME, PHONENUM, ADTEL, ADNAME, ADDRESS, BNUM, PROFILEIMAGE, TOKEN FROM Restaurant
+        SELECT ID, PASSWORD, NAME, PHONENUM, ADTEL, ADNAME, ADDRESS, BNUM, PROFILEIMAGE, EXPOTOKEN, FCMTOKEN FROM Restaurant
     </select>
 
     <!-- 기부자(음식점) 정보 수정 -->
