@@ -78,12 +78,11 @@ public class RestaurantController {
     }
 
     @PostMapping("/files") // 파일, 파이어베이스에 저장할 파일이름 필요!
-    public String uploadFile(@RequestParam("file") MultipartFile file, String nameFile)
+    public String uploadFile(@RequestBody String imageUrl)
             throws IOException, FirebaseAuthException {
-        if (file.isEmpty()) {
-            return "is empty";
-        }
-        return fireBaseService.uploadFiles(file, nameFile);
+        System.out.println("전달 받은 image URL: " + imageUrl);
+
+        return fireBaseService.uploadFiles(imageUrl);
     }
     @PostMapping("/token") // id, managerName, token 필요!
     public int addToken(@RequestBody RestaurantDto restaurantDto){

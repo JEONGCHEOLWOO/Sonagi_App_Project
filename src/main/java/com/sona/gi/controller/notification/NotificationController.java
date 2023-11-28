@@ -13,8 +13,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-import java.util.ArrayList;
 
+import org.json.JSONObject;
 
 @RestController
 @RequestMapping("/notification")
@@ -23,7 +23,7 @@ public class NotificationController {
     @Autowired
     private MemberService memberService;
 
-    @PostMapping("/sendNotification")
+    @GetMapping("/sendNotification")
     public ResponseEntity<String> sendNotification() {
         // DB에서 모든 회원 정보 가져오기
         List<MemberDto> allMembers = memberService.findAll();
@@ -41,10 +41,11 @@ public class NotificationController {
 
     // 푸시 알림 전송
     private void sendPushNotification(List<String> tokens) {
-        // 알림을 전송하는 코드 변경 (Expo HTTP/2 API 직접 사용)
+        RestTemplate restTemplate = new RestTemplate();
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
 
-        // 주소를 포함한 알림 메시지 생성
-        List<Map<String, Object>> notifications = new ArrayList<>();
         for (String token : tokens) {
             Map<String, Object> notification = new HashMap<>();
             notification.put("to", token);
@@ -52,30 +53,25 @@ public class NotificationController {
             notification.put("body", "5km 이내 식당에서 음식이 등록되었습니다!");
             notification.put("sound", "default");
             notification.put("data", Collections.singletonMap("withSome", "data"));
-            notifications.add(notification);
-        }
 
-        try {
-            // 메세지 전송
-            RestTemplate restTemplate = new RestTemplate();
-            HttpHeaders headers = new HttpHeaders();
-            headers.setContentType(MediaType.APPLICATION_JSON);
-            headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
-            HttpEntity<List<Map<String, Object>>> entity = new HttpEntity<>(notifications, headers);
+            HttpEntity<Map<String, Object>> entity = new HttpEntity<>(notification, headers);
 
-            ResponseEntity<String> response = restTemplate.exchange(
-                    "https://exp.host/--/api/v2/push/send",
-                    HttpMethod.POST,
-                    entity,
-                    String.class);
+            try {
+                ResponseEntity<String> response = restTemplate.exchange(
+                        "https://exp.host/--/api/v2/push/send",
+                        HttpMethod.POST,
+                        entity,
+                        String.class);
 
-            if (response.getStatusCode() == HttpStatus.OK) {
-                System.out.println("Successfully sent messages to all members");
-            } else {
-                System.err.println("Failed to send messages to all members");
+                if (response.getStatusCode() == HttpStatus.OK) {
+                    System.out.println("Successfully sent message to member with token: " + token);
+                } else {
+                    System.err.println("Failed to send message to member with token: " + token);
+                }
+            } catch (Exception e) {
+                System.err
+                        .println("Error sending message to member with token: " + token + ", error: " + e.getMessage());
             }
-        } catch (Exception e) {
-            System.err.println("Error sending messages to all members: " + e.getMessage());
         }
     }
 }
