@@ -3,6 +3,7 @@ package com.sona.gi.controller.restaurant;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.firebase.auth.FirebaseAuthException;
+import com.sona.gi.model.member.dto.MemberDto;
 import com.sona.gi.model.restaurant.dto.RestaurantDto;
 import com.sona.gi.service.firebase.FireBaseService;
 import com.sona.gi.service.restaurant.RestaurantService;
@@ -97,6 +98,12 @@ public class RestaurantController {
         int resultCnt = restaurantService.addToken(restaurantDto);
 
         return resultCnt;
+    }
+
+    @PostMapping("/findById")
+    public List<RestaurantDto> findById(@RequestBody RestaurantDto restaurantDto){
+        List<RestaurantDto> list = restaurantService.findById(restaurantDto);
+        return list;
     }
 
     public boolean check(String number) throws IOException {

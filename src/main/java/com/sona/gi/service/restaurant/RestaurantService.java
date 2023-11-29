@@ -1,5 +1,6 @@
 package com.sona.gi.service.restaurant;
 
+import com.sona.gi.model.member.dto.MemberDto;
 import com.sona.gi.model.restaurant.dto.RestaurantDto;
 import java.util.List;
 
@@ -11,4 +12,5 @@ public interface RestaurantService {
     int findSearch(RestaurantDto restaurantDto);
     List<RestaurantDto> login(RestaurantDto restaurantDto);
     int addToken(RestaurantDto restaurantDto);
+    List<RestaurantDto> findById(RestaurantDto restaurantDto);
 }

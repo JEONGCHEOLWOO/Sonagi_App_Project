@@ -42,11 +42,18 @@
 
     </select>
 
-    <!-- 피기부자(보육시설) 토큰등록 -->
+    <!-- 기부자(음식점) 토큰등록 -->
     <update id="addToken" parameterType="RestaurantDto">
         UPDATE Restaurant
         SET EXPOTOKEN=#{expotoken}, FCMTOKEN=#{fcmtoken}
         WHERE ID = #{id}
     </update>
+
+    <!-- 기부자(음식점) 아이디로 찾기 -->
+    <select id="findById" parameterType="RestaurantDto" resultType="RestaurantDto">
+        SELECT ID, PASSWORD, NAME, PHONENUM, ADTEL, ADNAME, ADDRESS, BNUM, PROFILEIMAGE, EXPOTOKEN, FCMTOKEN
+        FROM Restaurant
+        where ID = #{id}
+    </select>
 
 </mapper>
