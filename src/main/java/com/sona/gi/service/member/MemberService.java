@@ -12,6 +12,8 @@ public interface MemberService {
     int findSearch(MemberDto memberDto);
     List<MemberDto> login(MemberDto memberDto);
     int addToken(MemberDto memberDto);
+    List<MemberDto> findById(MemberDto memberDto);
+    int updateImageUrl(MemberDto memberDto);
 
 
 }

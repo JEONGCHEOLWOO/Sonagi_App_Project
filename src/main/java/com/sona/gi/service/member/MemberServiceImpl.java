@@ -42,4 +42,13 @@ public class MemberServiceImpl implements MemberService{
         public int addToken(MemberDto memberDto) {
                 return memberMapper.addToken(memberDto);
         }
+
+        @Override
+        public int updateImageUrl(MemberDto memberDto) {
+                return memberMapper.updateImageUrl(memberDto);
+        }
+
+        @Override
+        public List<MemberDto> findById(MemberDto memberDto) { return memberMapper.findById(memberDto); }
+
 }

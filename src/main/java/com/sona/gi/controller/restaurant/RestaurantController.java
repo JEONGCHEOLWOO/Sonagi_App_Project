@@ -80,17 +80,18 @@ public class RestaurantController {
     }
 
     @PostMapping("/files")
-    public ResponseEntity<String> uploadFileToFirebase(
+    public String uploadFileToFirebase(
             @RequestParam("file") MultipartFile file,
             @RequestParam("nameFile") String nameFile
     ) {
         try {
             String imageUrl = fireBaseService.uploadFiles(file, nameFile);
-            return ResponseEntity.ok(imageUrl);
+            return imageUrl;
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to upload the file: " + e.getMessage());
+            return nameFile;
         }
     }
+
     @PostMapping("/token") // id, expotoken, fcmtoken 필요!
     public int addToken(@RequestBody RestaurantDto restaurantDto){
         int resultCnt = restaurantService.addToken(restaurantDto);

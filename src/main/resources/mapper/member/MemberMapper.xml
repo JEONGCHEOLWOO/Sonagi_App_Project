@@ -36,17 +36,24 @@
     </delete>
 
 
-    <!-- 피기부자(보육시설) 로그인 -->
-    <select id="findSearch" parameterType="MemberDto" resultType="MemberDto">
-        SELECT ID, PASSWORD
+    <!-- 피기부자(보육시설) 아이디로 찾기 -->
+    <select id="findById" parameterType="MemberDto" resultType="MemberDto">
+        SELECT ID, PASSWORD, MANAGERNAME, PHONENUM, ADTEL, ADNAME, ADDRESS, TOTALHC, CURRHC, INTRODUCTION, PROFILEIMAGE, EXPOTOKEN, FCMTOKEN
         FROM Member
-        where ID = #{id} AND PASSWORD = #{password} <!-- $표시 -> statement -->
+        where ID = #{id}
     </select>
 
     <!-- 피기부자(보육시설) 토큰등록 -->
     <update id="addToken" parameterType="MemberDto">
         UPDATE Member
         SET EXPOTOKEN=#{expotoken}, FCMTOKEN=#{fcmtoken}
+        WHERE ID = #{id}
+    </update>
+
+    <!-- 피기부자(보육시설) 로그인 -->
+    <update id="updateImageUrl" parameterType="MemberDto">
+        UPDATE Member
+        SET PROFILEIMAGE=#{profileImage}
         WHERE ID = #{id}
     </update>
 

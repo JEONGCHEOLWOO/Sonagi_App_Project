@@ -19,4 +19,8 @@ public interface MemberMapper {
         List<MemberDto> login(MemberDto memberDto);
 
         int addToken(MemberDto memberDto);
+
+        int updateImageUrl(MemberDto memberDto);
+        List<MemberDto> findById(MemberDto memberDto);
+
 }

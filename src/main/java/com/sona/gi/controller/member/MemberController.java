@@ -1,19 +1,14 @@
 package com.sona.gi.controller.member;
 
-import com.google.firebase.auth.FirebaseAuthException;
 import com.sona.gi.model.member.dto.MemberDto;
 import com.sona.gi.service.firebase.FireBaseService;
 import com.sona.gi.service.member.MemberService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
-import java.sql.SQLOutput;
 import java.util.HashMap;
 import java.util.List;
 
@@ -87,6 +82,18 @@ public class MemberController {
         int resultCnt = memberService.addToken(memberDto);
 
         return resultCnt;
+    }
+
+    @PostMapping("/updateImageUrl") // id, profileImage 필요!
+    public int updateImageUrl(@RequestBody MemberDto memberDto){
+        int resultCnt = memberService.updateImageUrl(memberDto);
+        return resultCnt;
+    }
+
+    @PostMapping("/findById")
+    public List<MemberDto> findById(@RequestBody MemberDto memberDto){
+        List<MemberDto> list = memberService.findById(memberDto);
+        return list;
     }
 
 }
