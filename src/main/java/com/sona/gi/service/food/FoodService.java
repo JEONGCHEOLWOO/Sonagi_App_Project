@@ -10,4 +10,6 @@ public interface FoodService {
     int modify(FoodDto foodDto);
 
     int delete(FoodDto foodDto);
+
+    List<FoodDto> findById(FoodDto foodDto);
 }

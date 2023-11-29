@@ -33,4 +33,9 @@ public class FoodServiceImpl implements FoodService{
     public int delete(FoodDto foodDto) {
         return foodMapper.delete(foodDto);
     }
+
+    @Override
+    public List<FoodDto> findById(FoodDto foodDto) {
+        return foodMapper.findById(foodDto);
+    }
 }

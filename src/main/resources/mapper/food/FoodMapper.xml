@@ -15,6 +15,12 @@
         FROM Food
     </select>
 
+    <!-- 아이디로 음식 찾기 -->
+    <select id="findById" parameterType="FoodDto" resultType="FoodDto">
+        SELECT ID, FOODNAME, FOODAMOUNT, FOODPRICE, FOODTEL, FOODADDRESS, FOODGIVER, FOODIMAGE, FOODUPLOADTIME
+        FROM Food
+        where ID = #{id}
+    </select>
 
     <update id="modify" parameterType="FoodDto">
         UPDATE Food SET FOODNAME=#{foodName}, FOODAMONUT=#{foodAmount}, FOODPRICE=#{foodPrice}, FOODIMAGE=#{fooImage}, FOODUPLOADTIME=NOW()

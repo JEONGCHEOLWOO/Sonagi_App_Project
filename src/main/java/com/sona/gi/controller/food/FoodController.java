@@ -1,6 +1,7 @@
 package com.sona.gi.controller.food;
 
 import com.sona.gi.model.food.dto.FoodDto;
+import com.sona.gi.model.member.dto.MemberDto;
 import com.sona.gi.service.food.FoodService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -54,5 +55,11 @@ public class FoodController {
         int resultCnt= foodService.delete(foodDto);
         mv.put("resultCnt",resultCnt);
         return mv;
+    }
+
+    @PostMapping("/findById")
+    public List<FoodDto> findById(@RequestBody FoodDto foodDto){
+        List<FoodDto> list = foodService.findById(foodDto);
+        return list;
     }
 }
