@@ -13,7 +13,7 @@ import java.io.InputStream;
 
 @Service
 public class FireBaseService {
-    public String uploadFiles(MultipartFile file, String nameFile) throws IOException {
+    public String uploadFiles(MultipartFile file, String nameFile, String folderName) throws IOException {
 
         // Firebase Admin SDK 인증 정보 설정
         InputStream serviceAccount = FireBaseService.class.getResourceAsStream("/serviceAccountKey.json");
@@ -22,7 +22,7 @@ public class FireBaseService {
 
         // Firebase Storage 버킷명 설정
         String bucketName = "sonagi-671d0.appspot.com"; // Firebase Storage 버킷 이름
-
+        System.out.println(bucketName);
         String contentType = file.getContentType();
 
         // Firebase Storage에 업로드할 이미지 이름 설정
@@ -34,7 +34,7 @@ public class FireBaseService {
         storage.create(blobInfo, file.getBytes()); // 파일의 바이트 배열을 업로드
 
         // 이미지 URL 생성
-        String imageUrl = "https://firebasestorage.googleapis.com/v0/b/" + bucketName + "/o/"
+        String imageUrl = "https://firebasestorage.googleapis.com/v0/b/" + bucketName + "/o/" + folderName + "%2F"
                 + blobInfo.getName() + "?alt=media";
         System.out.println(imageUrl);
         return imageUrl; // 업로드된 이미지 이름 또는 URL 반환

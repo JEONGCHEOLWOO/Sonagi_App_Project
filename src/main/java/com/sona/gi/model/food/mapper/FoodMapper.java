@@ -16,5 +16,6 @@ public interface FoodMapper {
     int delete(FoodDto foodDto);
 
     List<FoodDto> findById(FoodDto foodDto);
+    int updateImageUrl(FoodDto foodDto);
 
 }

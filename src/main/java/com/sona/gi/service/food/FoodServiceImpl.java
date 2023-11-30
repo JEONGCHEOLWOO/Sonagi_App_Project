@@ -1,6 +1,5 @@
 package com.sona.gi.service.food;
 
-import com.sona.gi.model.donation.mapper.DonationMapper;
 import com.sona.gi.model.food.dto.FoodDto;
 import com.sona.gi.model.food.mapper.FoodMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,5 +36,10 @@ public class FoodServiceImpl implements FoodService{
     @Override
     public List<FoodDto> findById(FoodDto foodDto) {
         return foodMapper.findById(foodDto);
+    }
+
+    @Override
+    public int updateImageUrl(FoodDto foodDto) {
+        return foodMapper.updateImageUrl(foodDto);
     }
 }

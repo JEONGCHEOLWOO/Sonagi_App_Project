@@ -81,10 +81,11 @@ public class RestaurantController {
     @PostMapping("/files")
     public String uploadFileToFirebase(
             @RequestParam("file") MultipartFile file,
-            @RequestParam("nameFile") String nameFile
+            @RequestParam("nameFile") String nameFile,
+            @RequestParam("folderName") String folderName
     ) {
         try {
-            String imageUrl = fireBaseService.uploadFiles(file, nameFile);
+            String imageUrl = fireBaseService.uploadFiles(file, nameFile, folderName);
             return imageUrl;
         } catch (Exception e) {
             return nameFile;

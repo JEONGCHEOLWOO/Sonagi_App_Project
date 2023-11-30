@@ -56,4 +56,11 @@
         where ID = #{id}
     </select>
 
+    <!-- 기부자(음식점) 로그인 -->
+    <update id="updateImageUrl" parameterType="RestaurantDto">
+        UPDATE Restaurant
+        SET PROFILEIMAGE=#{profileImage}
+        WHERE ID = #{id}
+    </update>
+
 </mapper>

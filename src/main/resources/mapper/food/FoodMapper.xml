@@ -24,7 +24,7 @@
 
     <!-- 음식 정보 수정 -->
     <update id="modify" parameterType="FoodDto">
-        UPDATE Food SET FOODNAME=#{foodName}, FOODAMONUT=#{foodAmount}, FOODPRICE=#{foodPrice}, FOODIMAGE=#{fooImage}, FOODUPLOADTIME=NOW(), CONTEXT=#{context}, COOKINGTIME=#{cookingTime}
+        UPDATE Food SET FOODNAME=#{foodName}, FOODAMONUT=#{foodAmount}, FOODPRICE=#{foodPrice}, FOODIMAGE=#{foodImage}, FOODUPLOADTIME=NOW(), CONTEXT=#{context}, COOKINGTIME=#{cookingTime}
         WHERE ID=#{id}
     </update>
 
@@ -33,6 +33,13 @@
         DELETE FROM Food
         WHERE ID=#{id} AND FOODNAME=#{foodName}
     </delete>
+
+    <!-- 기부자(음식점) 로그인 -->
+    <update id="updateImageUrl" parameterType="RestaurantDto">
+        UPDATE Food
+        SET FOODIMAGE=#{foodImage}
+        WHERE ID = #{id}
+    </update>
 
 
 </mapper>
