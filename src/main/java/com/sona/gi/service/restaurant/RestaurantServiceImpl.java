@@ -36,6 +36,11 @@ public class RestaurantServiceImpl implements RestaurantService{
 
     @Override
     public int addToken(RestaurantDto restaurantDto) {
+        System.out.println(restaurantDto.getId());
+        System.out.println(restaurantDto.getExpotoken());
+
+
+
         return restaurantMapper.addToken(restaurantDto);
     }
 

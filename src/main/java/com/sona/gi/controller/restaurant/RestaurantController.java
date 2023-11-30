@@ -94,6 +94,8 @@ public class RestaurantController {
 
     @PostMapping("/token") // id, expotoken, fcmtoken 필요!
     public int addToken(@RequestBody RestaurantDto restaurantDto){
+        System.out.println(restaurantDto.getExpotoken());
+
         int resultCnt = restaurantService.addToken(restaurantDto);
 
         return resultCnt;
