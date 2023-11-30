@@ -1,6 +1,5 @@
 package com.sona.gi.service.restaurant;
 
-import com.sona.gi.model.member.dto.MemberDto;
 import com.sona.gi.model.restaurant.dto.RestaurantDto;
 import com.sona.gi.model.restaurant.mapper.RestaurantMapper;
 import org.springframework.beans.factory.annotation.Autowired;

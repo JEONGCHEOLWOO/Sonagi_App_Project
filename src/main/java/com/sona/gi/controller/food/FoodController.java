@@ -1,11 +1,13 @@
 package com.sona.gi.controller.food;
 
 import com.sona.gi.model.food.dto.FoodDto;
-import com.sona.gi.model.member.dto.MemberDto;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
 import com.sona.gi.service.food.FoodService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -13,6 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/boot/food")
+@Component
 public class FoodController {
 
     Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -21,6 +24,8 @@ public class FoodController {
     @Autowired
     private FoodService foodService;
 
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
 
     @PostMapping("/regist")
     public int regist(@RequestBody FoodDto foodDto){
@@ -62,4 +67,10 @@ public class FoodController {
         List<FoodDto> list = foodService.findById(foodDto);
         return list;
     }
+
+    @Scheduled(cron = "0 0 0 * * ?")
+    public void truncateTable() {
+        jdbcTemplate.execute("TRUNCATE TABLE Food");
+    }
+
 }

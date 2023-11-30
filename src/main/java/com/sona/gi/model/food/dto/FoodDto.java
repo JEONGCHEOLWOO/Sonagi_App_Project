@@ -4,29 +4,27 @@ package com.sona.gi.model.food.dto;
 public class FoodDto {
 
     //기부할 음식 등록
-
     private String id;
     //음식 이름
     private String foodName;
-
     //총 몇인분
     private String foodAmount;
-
     //1인분당 음식 가격
     private int foodPrice;
-
     //가게 전화번호
     private String foodTel;
-
     //가게 주소
     private String foodAddress;
-
     //가게 이름
     private String foodGiver;
-
+    // 음식 이미지
     private String foodImage;
-
+    // 음식 업로드 시간
     private String foodUploadTime;
+    // 음식 설명
+    private String context;
+    // 음식 조리 완료 시간
+    private String cookingTime;
 
     public String getId() {
         return id;
@@ -98,5 +96,21 @@ public class FoodDto {
 
     public void setFoodUploadTime(String foodUploadTime) {
         this.foodUploadTime = foodUploadTime;
+    }
+
+    public String getContext() {
+        return context;
+    }
+
+    public void setContext(String context) {
+        this.context = context;
+    }
+
+    public String getCookingTime() {
+        return cookingTime;
+    }
+
+    public void setCookingTime(String cookingTime) {
+        this.cookingTime = cookingTime;
     }
 }
