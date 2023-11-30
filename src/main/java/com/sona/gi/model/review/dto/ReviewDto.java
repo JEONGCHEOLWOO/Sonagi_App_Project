@@ -9,17 +9,14 @@ public class ReviewDto {
 
     //지역 카테고리
     private String regionCategory;
-
     //리뷰 제목
     private String reviewTitle;
     //리뷰 내용
     private String reviewContext;
-
     private String donator;
     private String receiver;
-
-
     private Date reviewDate;
+    private String reviewImage;
 
     public String getRegionCategory() {
         return regionCategory;
@@ -67,5 +64,13 @@ public class ReviewDto {
 
     public void setReceiver(String receiver) {
         this.receiver = receiver;
+    }
+
+    public String getReviewImage() {
+        return reviewImage;
+    }
+
+    public void setReviewImage(String reviewImage) {
+        this.reviewImage = reviewImage;
     }
 }

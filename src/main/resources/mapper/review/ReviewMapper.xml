@@ -6,12 +6,12 @@
 
 
     <insert id="regist" parameterType="ReviewDto">
-        INSERT INTO ReviewThx (regionCategory, reviewTitle, reviewContext, donator, receiver, reviewDate)
+        INSERT INTO ReviewThx (regionCategory, reviewTitle, reviewContext, donator, receiver, reviewDate, reviewImage)
         VALUES (#{regionCategory}, #{reviewTitle}, #{reviewContext}, #{donator}, #{receiver}, NOW())
     </insert>
 
     <select id="findAll" resultType="ReviewDto">
-        SELECT regionCategory, reviewTitle, reviewContext, donator, receiver, reviewDate
+        SELECT regionCategory, reviewTitle, reviewContext, donator, receiver, reviewDate, reviewImage
         FROM ReviewThx
     </select>
 
@@ -27,5 +27,9 @@
         WHERE reviewTitle = #{reviewTitle} + donator = #{donator}
     </delete>
 
+<!--    <update>-->
+
+
+<!--    </update>-->
 
 </mapper>

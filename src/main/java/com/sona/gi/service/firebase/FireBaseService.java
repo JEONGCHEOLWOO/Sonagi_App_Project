@@ -16,7 +16,7 @@ public class FireBaseService {
     public String uploadFiles(MultipartFile file, String nameFile) throws IOException {
 
         // Firebase Admin SDK 인증 정보 설정
-        InputStream serviceAccount = new FileInputStream("F://Intellij Project//Sonagi_App_Project//src//main//resources//serviceAccountKey.json"); // 예시: new FileInputStream("/path/to/firebase/account/key.json");
+        InputStream serviceAccount = FireBaseService.class.getResourceAsStream("/serviceAccountKey.json");
         GoogleCredentials credentials = GoogleCredentials.fromStream(serviceAccount);
         Storage storage = StorageOptions.newBuilder().setCredentials(credentials).build().getService();
 
