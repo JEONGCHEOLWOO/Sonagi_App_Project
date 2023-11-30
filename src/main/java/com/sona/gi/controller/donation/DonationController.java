@@ -36,11 +36,9 @@ public class DonationController {
     //    @RequestMapping(method = RequestMethod.POST, path = "/postMethod")
     // 아래랑 동일
     @GetMapping("/findAll")
-    public HashMap<String,Object> findAll(){
-        HashMap<String,Object> mv = new HashMap<>();
+    public List<DonationDto> findAll(){
         List<DonationDto> list = donationService.findAll();
-        mv.put("list",list);
-        return mv;
+        return list;
     }
 
     //검색 get, 수정 삭제 post

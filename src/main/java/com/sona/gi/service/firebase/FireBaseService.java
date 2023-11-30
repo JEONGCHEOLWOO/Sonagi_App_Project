@@ -15,10 +15,15 @@ import java.io.InputStream;
 public class FireBaseService {
     public String uploadFiles(MultipartFile file, String nameFile, String folderName) throws IOException {
 
+        System.out.println("11111");
+
         // Firebase Admin SDK 인증 정보 설정
         InputStream serviceAccount = FireBaseService.class.getResourceAsStream("/serviceAccountKey.json");
+        System.out.println("11111");
         GoogleCredentials credentials = GoogleCredentials.fromStream(serviceAccount);
+        System.out.println("11111");
         Storage storage = StorageOptions.newBuilder().setCredentials(credentials).build().getService();
+        System.out.println("11111");
 
         // Firebase Storage 버킷명 설정
         String bucketName = "sonagi-671d0.appspot.com"; // Firebase Storage 버킷 이름

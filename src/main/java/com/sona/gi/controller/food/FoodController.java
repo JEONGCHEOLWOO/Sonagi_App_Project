@@ -29,6 +29,7 @@ public class FoodController {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
+    @Autowired
     private FireBaseService fireBaseService;
 
     @PostMapping("/regist")

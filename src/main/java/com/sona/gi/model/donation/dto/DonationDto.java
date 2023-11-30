@@ -8,8 +8,6 @@ import java.sql.Date;
 
 public class DonationDto {
 
-    //기부내역 DTO
-
     //기부한 날짜
     private Date donatedDate;
 
