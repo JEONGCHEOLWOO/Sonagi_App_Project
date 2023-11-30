@@ -29,13 +29,15 @@ public class FireBaseService {
         String imageName = nameFile;
 
         // Firebase Storage에 이미지 업로드
-        BlobId blobId = BlobId.of(bucketName, imageName);
+        String objectName = folderName + "/" + imageName; // 폴더명을 추가
+        BlobId blobId = BlobId.of(bucketName, objectName);
         BlobInfo blobInfo = BlobInfo.newBuilder(blobId).setContentType(contentType).build();
         storage.create(blobInfo, file.getBytes()); // 파일의 바이트 배열을 업로드
 
         // 이미지 URL 생성
-        String imageUrl = "https://firebasestorage.googleapis.com/v0/b/" + bucketName + "/o/" + folderName + "%2F"
-                + blobInfo.getName() + "?alt=media";
+        String imageUrl = "https://firebasestorage.googleapis.com/v0/b/" + bucketName + "/o/"
+                + java.net.URLEncoder.encode(objectName, "UTF-8") + "?alt=media";
+
         System.out.println(imageUrl);
         return imageUrl; // 업로드된 이미지 이름 또는 URL 반환
     }
