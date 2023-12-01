@@ -25,6 +25,8 @@ public class DonationDto {
 
     //리뷰 썼는지 안썼는지 체크
     private boolean isReviewed;
+    // 기부 음식 제목
+    private String foodTitle;
 
     public Date getDonatedDate() {
         return donatedDate;
@@ -72,5 +74,13 @@ public class DonationDto {
 
     public void setReviewed(boolean reviewed) {
         isReviewed = reviewed;
+    }
+
+    public String getFoodTitle() {
+        return foodTitle;
+    }
+
+    public void setFoodTitle(String foodTitle) {
+        this.foodTitle = foodTitle;
     }
 }

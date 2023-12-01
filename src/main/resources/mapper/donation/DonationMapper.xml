@@ -11,29 +11,29 @@
     </insert>
 
     <select id="findAll" resultType="DonationDto">
-        SELECT ID,NAME, KOR_SCORE, ENG_SCORE, MATH_SCORE FROM Donation
+        SELECT DONATEDDATE, DONATEDPROVIDER, DONATEDRECEIVER, DONATEDAMOUNT, DONATEDPRICE, ISREVIEWED, FOODTITLE
+        FROM DonationHistory
     </select>
 
 
     <update id="modify" parameterType="DonationDto">
-        UPDATE Donation SET KOR_SCORE=#{korScore},
-                                  ENG_SCORE=#{engScore}, MATH_SCORE=#{mathScore}
-        WHERE ID=#{id}
+        UPDATE DonationHistory SET DONATEDDATE=#{donatedDate},DONATEDRECEIVER=#{donatedReceiver},DONATEDAMOUNT=#{donatedAmount},FOODTITLE=#{foodTitle}
+        WHERE DONATEDPROVIDER=#{donatedProvider}
     </update>
 
 
     <delete id="delete" parameterType="DonationDto">
-        DELETE FROM Donation
-        WHERE ID = #{id}
+        DELETE FROM DonationHistory
+        WHERE DONATEDPROVIDER = #{donatedProvider}
     </delete>
 
 
     <select id="findSearch" parameterType="DonationDto" resultType="DonationDto">
-        SELECT ID,NAME, KOR_SCORE, ENG_SCORE, MATH_SCORE
-        FROM Donation
-        <if test='keyword!=null and keyword!=""'>
+        SELECT DONATEDDATE, DONATEDPROVIDER, DONATEDRECEIVER, DONATEDAMOUNT, DONATEDPRICE, ISREVIEWED, FOODTITLE
+        FROM DonationHistory
+<!--        <if test='keyword!=null and keyword!=""'>-->
             where ${searchCode} = #{keyword} <!-- $표시 -> statement -->
-        </if>
+<!--         </if>-->
     </select>
 
 
