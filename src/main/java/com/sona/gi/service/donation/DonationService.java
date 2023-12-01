@@ -9,9 +9,7 @@ public interface DonationService {
     int regist(DonationDto donationDto);
     List<DonationDto> findAll();
     int modify(DonationDto donationDto);
-
     int delete(DonationDto donationDto);
-
     List<DonationDto> findByIdP(DonationDto donationDto);
     List<DonationDto> findByIdR(DonationDto donationDto);
 }

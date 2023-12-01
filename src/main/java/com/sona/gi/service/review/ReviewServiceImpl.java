@@ -31,4 +31,13 @@ public class ReviewServiceImpl implements ReviewService{
     public int delete(ReviewDto reviewDto) {
         return reviewMapper.delete(reviewDto);
     }
+
+    @Override
+    public int updateImageUrl(ReviewDto reviewDto) { return reviewMapper.updateImageUrl(reviewDto); }
+
+    @Override
+    public List<ReviewDto> findByIdD(ReviewDto reviewDto) { return reviewMapper.findByIdD(reviewDto); }
+
+    @Override
+    public List<ReviewDto> findByIdR(ReviewDto reviewDto) { return reviewMapper.findByIdR(reviewDto); }
 }

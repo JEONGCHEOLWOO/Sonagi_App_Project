@@ -7,7 +7,7 @@
 
     <insert id="regist" parameterType="ReviewDto">
         INSERT INTO ReviewThx (regionCategory, reviewTitle, reviewContext, donator, receiver, reviewDate, reviewImage)
-        VALUES (#{regionCategory}, #{reviewTitle}, #{reviewContext}, #{donator}, #{receiver}, NOW())
+        VALUES (#{regionCategory}, #{reviewTitle}, #{reviewContext}, #{donator}, #{receiver}, NOW(), #{reviewImage})
     </insert>
 
     <select id="findAll" resultType="ReviewDto">
@@ -18,18 +18,31 @@
     <update id="modify" parameterType="ReviewDto">
         UPDATE ReviewThx SET reviewTitle=#{reviewTitle},
                              reviewContext=#{reviewContext}, reviewDate=NOW()
-        WHERE donator = #{donator}
+        WHERE receiver = #{receiver}
     </update>
 
 
     <delete id="delete" parameterType="ReviewDto">
         DELETE FROM ReviewThx
-        WHERE reviewTitle = #{reviewTitle} + donator = #{donator}
+        WHERE reviewTitle = #{reviewTitle} + receiver = #{receiver}
     </delete>
 
-<!--    <update>-->
+    <update id="updateImageUrl" parameterType="ReviewDto">
+        UPDATE ReviewThx
+        SET REVIEWIMAGE = #{reviewImage}
+        WHERE receiver = #{receiver}
+    </update>
 
+    <select id="findByIdD" parameterType="ReviewDto" resultType="ReviewDto">
+        SELECT regionCategory, reviewTitle, reviewContext, donator, receiver, reviewDate, reviewImage
+        FROM   ReviewThx
+        where  donator=#{donator}
+    </select>
 
-<!--    </update>-->
+    <select id="findByIdR" parameterType="ReviewDto" resultType="ReviewDto">
+        SELECT regionCategory, reviewTitle, reviewContext, donator, receiver, reviewDate, reviewImage
+        FROM   ReviewThx
+        where  receiver=#{receiver}
+    </select>
 
 </mapper>

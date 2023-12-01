@@ -5,8 +5,6 @@ import java.sql.Date;
 
 public class ReviewDto {
 
-    // 리뷰 DTO
-
     // 지역 카테고리
     private String regionCategory;
     // 리뷰 제목
