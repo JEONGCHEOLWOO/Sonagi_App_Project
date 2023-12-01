@@ -3,6 +3,7 @@ package com.sona.gi.controller.restaurant;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import com.sona.gi.model.member.dto.MemberDto;
 import com.sona.gi.model.restaurant.dto.RestaurantDto;
 import com.sona.gi.service.firebase.FireBaseService;
 import com.sona.gi.service.restaurant.RestaurantService;
@@ -62,12 +63,10 @@ public class RestaurantController {
     }
 
     //검색 get, 수정 삭제 post
-    @PostMapping("/modify") // id, password, adTel, adName, address, profileImage 필요!
-    public HashMap<String,Object> modify(@RequestBody RestaurantDto restaurantDto){
-        HashMap<String,Object> mv = new HashMap<>();
-        int resultCnt= restaurantService.modify(restaurantDto);
-        mv.put("resultCnt",resultCnt);
-        return mv;
+    @PostMapping("/modifyPw") // id, password, adTel, adName, address 필요!
+    public int modifyPw(@RequestBody RestaurantDto restaurantDto){
+        int resultCnt= restaurantService.modifyPw(restaurantDto);
+        return resultCnt;
     }
 
     @PostMapping("/delete") // id만 필요!
@@ -92,6 +91,11 @@ public class RestaurantController {
         }
     }
 
+    @PostMapping("/updateImageUrl") // id, profileImage 필요!
+    public int updateImageUrl(@RequestBody RestaurantDto restaurantDto){
+        int resultCnt = restaurantService.updateImageUrl(restaurantDto);
+        return resultCnt;
+    }
     @PostMapping("/token") // id, expotoken, fcmtoken 필요!
     public int addToken(@RequestBody RestaurantDto restaurantDto){
         System.out.println(restaurantDto.getExpotoken());

@@ -21,7 +21,7 @@ public class RestaurantServiceImpl implements RestaurantService{
     }
 
     @Override
-    public int modify(RestaurantDto restaurantDto) { return restaurantMapper.modify(restaurantDto); }
+    public int modifyPw(RestaurantDto restaurantDto) { return restaurantMapper.modifyPw(restaurantDto); }
 
     @Override
     public int delete(RestaurantDto restaurantDto) {
@@ -43,6 +43,9 @@ public class RestaurantServiceImpl implements RestaurantService{
 
         return restaurantMapper.addToken(restaurantDto);
     }
+
+    @Override
+    public int updateImageUrl(RestaurantDto restaurantDto) { return restaurantMapper.updateImageUrl(restaurantDto); }
 
     @Override
     public List<RestaurantDto> findById(RestaurantDto restaurantDto) { return restaurantMapper.findById(restaurantDto); }

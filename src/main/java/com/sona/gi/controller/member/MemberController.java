@@ -40,28 +40,22 @@ public class MemberController {
     //    @RequestMapping(method = RequestMethod.POST, path = "/postMethod")
     // 아래랑 동일
     @GetMapping("/findAll")
-    public HashMap<String,Object> findAll(){
-        HashMap<String,Object> mv = new HashMap<>();
+    public List<MemberDto> findAll(){
         List<MemberDto> list = memberService.findAll();
-        mv.put("list",list);
-        return mv;
+        return list;
     }
 
     //검색 get, 수정 삭제 post
     @PostMapping("/modify") // id, password, introduction, adTel, adName, address, totalHc, profileImage 필요!
-    public HashMap<String,Object> modify(@RequestBody MemberDto memberDto){
-        HashMap<String,Object> mv = new HashMap<>();
+    public int modify(@RequestBody MemberDto memberDto){
         int resultCnt= memberService.modify(memberDto);
-        mv.put("resultCnt",resultCnt);
-        return mv;
+        return resultCnt;
     }
 
     @PostMapping("/delete") // id만 필요!
-    public HashMap<String,Object> delete(@RequestBody MemberDto memberDto){
-        HashMap<String,Object> mv = new HashMap<>();
+    public int delete(@RequestBody MemberDto memberDto){
         int resultCnt= memberService.delete(memberDto);
-        mv.put("resultCnt",resultCnt);
-        return mv;
+        return resultCnt;
     }
 
     @PostMapping("/files")
