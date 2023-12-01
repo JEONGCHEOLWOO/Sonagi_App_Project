@@ -6,8 +6,8 @@
 
 
     <insert id="regist" parameterType="DonationDto">
-        INSERT INTO Donation (ID)
-        VALUES (#{id})
+        INSERT INTO Donation ( DONATEDDATE, DONATEDPROVIDER, DONATEDRECEIVER, DONATEDAMOUNT, DONATEDPRICE, ISREVIEWED, FOODTITLE)
+        VALUES (#{donatedDate},#{donatedProvider},#{donatedReceiver},#{donatedAmount},#{donatedPrice},#{isReviewed},#{foodTitle})
     </insert>
 
     <select id="findAll" resultType="DonationDto">
@@ -18,14 +18,20 @@
 
     <update id="modify" parameterType="DonationDto">
         UPDATE DonationHistory SET DONATEDDATE=#{donatedDate},DONATEDRECEIVER=#{donatedReceiver},DONATEDAMOUNT=#{donatedAmount},FOODTITLE=#{foodTitle}
-        WHERE ID=#{id}
+        WHERE FOODTITLE=#{foodTitle}
     </update>
 
 
-    <select id="findById" parameterType="DonationDto" resultType="DonationDto">
+    <select id="findByIdP" parameterType="DonationDto" resultType="DonationDto">
         SELECT DONATEDDATE, DONATEDPROVIDER, DONATEDRECEIVER, DONATEDAMOUNT, DONATEDPRICE, ISREVIEWED, FOODTITLE
-        FROM DonationHistory
-        where  ID=#{id}
+        FROM   DonationHistory
+        where  DONATEDPROVIDER=#{donatedProvider}
+    </select>
+
+    <select id="findByIdR" parameterType="DonationDto" resultType="DonationDto">
+        SELECT DONATEDDATE, DONATEDPROVIDER, DONATEDRECEIVER, DONATEDAMOUNT, DONATEDPRICE, ISREVIEWED, FOODTITLE
+        FROM   DonationHistory
+        where  DONATEDRECEIVER=#{donatedReceiver}
     </select>
 
 

@@ -32,4 +32,14 @@ public class DonationServiceImpl implements DonationService{
     public int delete(DonationDto donationDto) {
         return donationMapper.delete(donationDto);
     }
+
+    @Override
+    public List<DonationDto> findByIdP(DonationDto donationDto) {
+        return donationMapper.findByIdP(donationDto);
+    }
+
+    @Override
+    public List<DonationDto> findByIdR(DonationDto donationDto) {
+        return donationMapper.findByIdR(donationDto);
+    }
 }

@@ -41,4 +41,16 @@ public class DonationController {
         int resultCnt = donationService.modify(donationDto);
         return resultCnt;
     }
+
+    @PostMapping("/findByIdP")
+    public List<DonationDto> findByIdP(@RequestBody DonationDto donationDto){
+        List<DonationDto> list = donationService.findByIdP(donationDto);
+        return list;
+    }
+
+    @PostMapping("/findByIdR")
+    public List<DonationDto> findByIdR(@RequestBody DonationDto donationDto){
+        List<DonationDto> list = donationService.findByIdR(donationDto);
+        return list;
+    }
 }
