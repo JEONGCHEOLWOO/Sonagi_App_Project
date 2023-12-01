@@ -47,15 +47,19 @@ public class MemberController {
 
     //검색 get, 수정 삭제 post
     @PostMapping("/modify") // id, password, introduction, adTel, adName, address, totalHc, profileImage 필요!
-    public int modify(@RequestBody MemberDto memberDto){
+    public HashMap<String,Object> modify(@RequestBody MemberDto memberDto){
+        HashMap<String,Object> mv = new HashMap<>();
         int resultCnt= memberService.modify(memberDto);
-        return resultCnt;
+        mv.put("resultCnt",resultCnt);
+        return mv;
     }
 
     @PostMapping("/delete") // id만 필요!
-    public int delete(@RequestBody MemberDto memberDto){
+    public HashMap<String,Object> delete(@RequestBody MemberDto memberDto){
+        HashMap<String,Object> mv = new HashMap<>();
         int resultCnt= memberService.delete(memberDto);
-        return resultCnt;
+        mv.put("resultCnt",resultCnt);
+        return mv;
     }
 
     @PostMapping("/files")
