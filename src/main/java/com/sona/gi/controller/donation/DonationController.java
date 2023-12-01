@@ -22,7 +22,7 @@ public class DonationController {
 
 
     @PostMapping("/regist")
-    public int regist(@RequestBody DonationDto donationDto){
+    public int regist(@RequestBody DonationDto donationDto) {
         int resultCnt = donationService.regist(donationDto);
         return resultCnt;
     }
@@ -30,21 +30,15 @@ public class DonationController {
     //    @RequestMapping(method = RequestMethod.POST, path = "/postMethod")
     // 아래랑 동일
     @GetMapping("/findAll")
-    public List<DonationDto> findAll(){
+    public List<DonationDto> findAll() {
         List<DonationDto> list = donationService.findAll();
         return list;
     }
 
     //검색 get, 수정 삭제 post
     @PostMapping("/modify")
-    public int modify(@RequestBody DonationDto donationDto){
-        int resultCnt= donationService.modify(donationDto);
-        return resultCnt;
-    }
-
-    @PostMapping("/delete")
-    public int delete(@RequestBody DonationDto donationDto){
-        int resultCnt= donationService.delete(donationDto);
+    public int modify(@RequestBody DonationDto donationDto) {
+        int resultCnt = donationService.modify(donationDto);
         return resultCnt;
     }
 }

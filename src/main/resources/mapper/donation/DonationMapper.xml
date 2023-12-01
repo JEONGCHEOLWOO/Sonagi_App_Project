@@ -18,22 +18,14 @@
 
     <update id="modify" parameterType="DonationDto">
         UPDATE DonationHistory SET DONATEDDATE=#{donatedDate},DONATEDRECEIVER=#{donatedReceiver},DONATEDAMOUNT=#{donatedAmount},FOODTITLE=#{foodTitle}
-        WHERE DONATEDPROVIDER=#{donatedProvider}
+        WHERE ID=#{id}
     </update>
 
 
-    <delete id="delete" parameterType="DonationDto">
-        DELETE FROM DonationHistory
-        WHERE DONATEDPROVIDER = #{donatedProvider}
-    </delete>
-
-
-    <select id="findSearch" parameterType="DonationDto" resultType="DonationDto">
+    <select id="findById" parameterType="DonationDto" resultType="DonationDto">
         SELECT DONATEDDATE, DONATEDPROVIDER, DONATEDRECEIVER, DONATEDAMOUNT, DONATEDPRICE, ISREVIEWED, FOODTITLE
         FROM DonationHistory
-<!--        <if test='keyword!=null and keyword!=""'>-->
-            where ${searchCode} = #{keyword} <!-- $표시 -> statement -->
-<!--         </if>-->
+        where  ID=#{id}
     </select>
 
 

@@ -7,6 +7,8 @@ import java.sql.Date;
 
 
 public class DonationDto {
+    // 아이디
+    private String id;
 
     //기부한 날짜
     private Date donatedDate;
@@ -27,6 +29,14 @@ public class DonationDto {
     private boolean isReviewed;
     // 기부 음식 제목
     private String foodTitle;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public Date getDonatedDate() {
         return donatedDate;
