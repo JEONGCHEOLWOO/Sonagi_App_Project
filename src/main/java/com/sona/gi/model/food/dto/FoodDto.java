@@ -25,6 +25,8 @@ public class FoodDto {
     private String context;
     // 음식 조리 완료 시간
     private String cookingTime;
+    // 음식 마감 시간
+    private String deadline;
 
     public String getId() {
         return id;
@@ -112,5 +114,13 @@ public class FoodDto {
 
     public void setCookingTime(String cookingTime) {
         this.cookingTime = cookingTime;
+    }
+
+    public String getDeadline() {
+        return deadline;
+    }
+
+    public void setDeadline(String deadline) {
+        this.deadline = deadline;
     }
 }
