@@ -35,11 +35,16 @@
     </delete>
 
     <!-- 기부자(음식점) 로그인 -->
-    <update id="updateImageUrl" parameterType="RestaurantDto">
+    <update id="updateImageUrl" parameterType="FoodDto">
         UPDATE Food
         SET FOODIMAGE=#{foodImage}
         WHERE ID = #{id}
     </update>
 
+    <update id="minus" parameterType="FoodDto">
+        UPDATE Food
+        SET foodAmount = foodAmount - #{foodAmount}
+        WHERE ID=#{id}
+    </update>
 
 </mapper>

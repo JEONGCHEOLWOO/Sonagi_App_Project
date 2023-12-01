@@ -6,8 +6,8 @@
 
 
     <insert id="regist" parameterType="DonationDto">
-        INSERT INTO Donation ( DONATEDDATE, DONATEDPROVIDER, DONATEDRECEIVER, DONATEDAMOUNT, DONATEDPRICE, ISREVIEWED, FOODTITLE)
-        VALUES (#{donatedDate},#{donatedProvider},#{donatedReceiver},#{donatedAmount},#{donatedPrice},#{isReviewed},#{foodTitle})
+        INSERT INTO DonationHistory ( DONATEDDATE, DONATEDPROVIDER, DONATEDRECEIVER, DONATEDAMOUNT, DONATEDPRICE, ISREVIEWED, FOODTITLE)
+        VALUES (now(),#{donatedProvider},#{donatedReceiver},#{donatedAmount},#{donatedPrice},0,#{foodTitle})
     </insert>
 
     <select id="findAll" resultType="DonationDto">

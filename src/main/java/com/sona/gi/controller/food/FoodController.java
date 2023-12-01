@@ -96,4 +96,10 @@ public class FoodController {
         jdbcTemplate.execute("TRUNCATE TABLE Food");
     }
 
+    @PostMapping("/minus")
+    public int minus(@RequestBody FoodDto foodDto){
+        int resultCnt= foodService.minus(foodDto);
+        return resultCnt;
+    }
+
 }
