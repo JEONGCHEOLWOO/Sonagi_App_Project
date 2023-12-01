@@ -36,9 +36,8 @@
 
     <update id="IsReviewed" parameterType="DonationDto">
         UPDATE DonationHistory
-        SET ISREVIEWED= "1"
+        SET ISREVIEWED=#{isReviewed}
         WHERE DONATEDPROVIDER=#{donatedProvider} AND FOODTITLE=#{foodTitle}
     </update>
-
 
 </mapper>
