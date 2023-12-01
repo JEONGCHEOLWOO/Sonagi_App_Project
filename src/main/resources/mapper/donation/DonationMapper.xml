@@ -36,7 +36,7 @@
 
     <update id="IsReviewed" parameterType="DonationDto">
         UPDATE DonationHistory
-        SET ISREVIEWED=#{isReviewed}
+        SET ISREVIEWED=1
         WHERE DONATEDPROVIDER=#{donatedProvider} AND FOODTITLE=#{foodTitle}
     </update>
 

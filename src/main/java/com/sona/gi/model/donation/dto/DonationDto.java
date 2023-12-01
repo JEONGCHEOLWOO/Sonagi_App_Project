@@ -21,7 +21,7 @@ public class DonationDto {
     private String donatedPrice;
 
     //리뷰 썼는지 안썼는지 체크
-    private boolean isReviewed;
+    private int isReviewed;
     // 기부 음식 제목
     private String foodTitle;
 
@@ -65,12 +65,12 @@ public class DonationDto {
         this.donatedPrice = donatedPrice;
     }
 
-    public boolean isReviewed() {
+    public int getIsReviewed() {
         return isReviewed;
     }
 
-    public void setReviewed(boolean reviewed) {
-        isReviewed = reviewed;
+    public void setIsReviewed(int isReviewed) {
+        this.isReviewed = isReviewed;
     }
 
     public String getFoodTitle() {
