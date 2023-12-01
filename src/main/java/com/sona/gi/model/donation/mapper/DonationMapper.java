@@ -1,7 +1,6 @@
 package com.sona.gi.model.donation.mapper;
 
 import com.sona.gi.model.donation.dto.DonationDto;
-import com.sona.gi.model.member.dto.MemberDto;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -15,4 +14,5 @@ public interface DonationMapper {
     int delete(DonationDto donationDto);
     List<DonationDto> findByIdP(DonationDto donationDto);
     List<DonationDto> findByIdR(DonationDto donationDto);
+    int IsReviewed(DonationDto donationDto);
 }

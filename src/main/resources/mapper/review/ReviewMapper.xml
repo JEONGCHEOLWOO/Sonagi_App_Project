@@ -24,7 +24,7 @@
 
     <delete id="delete" parameterType="ReviewDto">
         DELETE FROM ReviewThx
-        WHERE reviewTitle = #{reviewTitle} + receiver = #{receiver}
+        WHERE reviewTitle = #{reviewTitle} AND receiver = #{receiver}
     </delete>
 
     <update id="updateImageUrl" parameterType="ReviewDto">

@@ -42,4 +42,7 @@ public class DonationServiceImpl implements DonationService{
     public List<DonationDto> findByIdR(DonationDto donationDto) {
         return donationMapper.findByIdR(donationDto);
     }
+
+    @Override
+    public int IsReviewed(DonationDto donationDto) { return donationMapper.IsReviewed(donationDto); }
 }

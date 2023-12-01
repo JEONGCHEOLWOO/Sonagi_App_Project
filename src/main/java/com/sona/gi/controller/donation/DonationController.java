@@ -53,4 +53,10 @@ public class DonationController {
         List<DonationDto> list = donationService.findByIdR(donationDto);
         return list;
     }
+
+    @PostMapping("/IsReviewed")
+    public int IsReviewed (@RequestBody DonationDto donationDto){
+        int resultCnt = donationService.IsReviewed(donationDto);
+        return resultCnt;
+    }
 }

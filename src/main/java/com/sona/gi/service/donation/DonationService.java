@@ -12,4 +12,5 @@ public interface DonationService {
     int delete(DonationDto donationDto);
     List<DonationDto> findByIdP(DonationDto donationDto);
     List<DonationDto> findByIdR(DonationDto donationDto);
+    int IsReviewed(DonationDto donationDto);
 }

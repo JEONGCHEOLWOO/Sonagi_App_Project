@@ -34,6 +34,11 @@
         where  DONATEDRECEIVER=#{donatedReceiver}
     </select>
 
+    <update id="IsReviewed" parameterType="DonationDto">
+        UPDATE DonationHistory
+        SET ISREVIEWED= "1"
+        WHERE DONATEDPROVIDER=#{donatedProvider} AND FOODTITLE=#{foodTitle}
+    </update>
 
 
 </mapper>
