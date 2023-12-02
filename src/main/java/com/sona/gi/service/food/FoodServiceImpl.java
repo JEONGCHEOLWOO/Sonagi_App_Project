@@ -42,4 +42,7 @@ public class FoodServiceImpl implements FoodService{
     public int updateImageUrl(FoodDto foodDto) {
         return foodMapper.updateImageUrl(foodDto);
     }
+
+    @Override
+    public int minus(FoodDto foodDto) { return foodMapper.minus(foodDto); }
 }

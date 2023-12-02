@@ -14,4 +14,6 @@ public interface FoodService {
     List<FoodDto> findById(FoodDto foodDto);
 
     int updateImageUrl(FoodDto foodDto);
+
+    int minus(FoodDto foodDto);
 }
