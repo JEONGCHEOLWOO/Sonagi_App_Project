@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.00//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sona.gi.model.crawling.mapper.CrawlingMapper">
+
+    <select id="findAll" resultType="CrawlingDto">
+        SELECT * FROM CrawlingDonorsCampGiveP
+    </select>
+
+    <select id="findNotice" resultType="CrawlingNoticeDto">
+        SELECT * FROM CrawlingNoticeGive
+    </select>
+
+    <select id="findNaver" resultType="CrawlingNaverDto">
+        SELECT * FROM CrawlingNaverGive
+    </select>
+
+</mapper>

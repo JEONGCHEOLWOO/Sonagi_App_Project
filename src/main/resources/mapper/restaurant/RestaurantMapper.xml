@@ -23,7 +23,7 @@
 
     <!-- 기부자(음식점) 정보 수정 -->
     <update id="modifyPw" parameterType="RestaurantDto">
-        UPDATE Restaurant SET PASSWORD=#{password}, ADDRESS=#{address}, ADTEL=#{adTel}, ADNAME=#{adName}, , PROFILEIMAGE=#{profileImage}
+        UPDATE Restaurant SET PASSWORD=#{password}, ADDRESS=#{address}, ADTEL=#{adTel}, ADNAME=#{adName}
         WHERE ID=#{id}
     </update>
 
