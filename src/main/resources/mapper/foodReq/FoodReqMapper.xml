@@ -21,4 +21,15 @@
         WHERE senderId = #{senderId}
     </delete>
 
+    <select id="findBySenderId" parameterType="FoodReqDto" resultType="FoodReqDto">
+        SELECT *
+        FROM DonationRequest
+        where senderId = #{senderId}
+    </select>
+
+    <delete id="senderDelete" parameterType="FoodReqDto">
+        DELETE FROM DonationRequest
+        WHERE senderId = #{senderId} AND receiverId = #{receiverId} AND foodName = #{foodName}
+    </delete>
+
 </mapper>

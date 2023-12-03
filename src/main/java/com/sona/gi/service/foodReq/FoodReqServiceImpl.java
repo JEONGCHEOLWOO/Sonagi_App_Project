@@ -25,4 +25,14 @@ public class FoodReqServiceImpl implements FoodReqService{
         return foodReqMapper.delete(foodReqDto);
     }
 
+    @Override
+    public List<FoodReqDto> findBySenderId(FoodReqDto foodReqDto) {
+        return foodReqMapper.findBySenderId(foodReqDto);
+    }
+
+    @Override
+    public int senderDelete(FoodReqDto foodReqDto) {
+        return foodReqMapper.senderDelete(foodReqDto);
+    }
+
 }
