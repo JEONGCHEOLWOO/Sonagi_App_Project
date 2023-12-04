@@ -5,6 +5,8 @@ import com.sona.gi.service.admin.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/boot/admin")
 public class AdminController {
@@ -16,5 +18,11 @@ public class AdminController {
     public int requestAdmin(@RequestBody AdminDto adminDto){
         int resultCnt  = adminService.requestAdmin(adminDto);
         return resultCnt;
+    }
+
+    @GetMapping("/findAll")
+    public List<AdminDto> findAll(){
+        List<AdminDto> list = adminService.findAll();
+        return list;
     }
 }

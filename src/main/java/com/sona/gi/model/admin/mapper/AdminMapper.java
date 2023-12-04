@@ -8,4 +8,7 @@ import java.util.List;
 @Mapper
 public interface AdminMapper {
     int requestAdmin(AdminDto adminDto);
+
+    List<AdminDto> findAll(AdminDto adminDto);
+
 }

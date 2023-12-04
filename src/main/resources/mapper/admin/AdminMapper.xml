@@ -9,4 +9,9 @@
         VALUES (#{id},#{managerName},#{adTel},#{adName},#{address},#{introduction}, #{totalHc})
     </insert>
 
+    <select id="findAll" resultType="AdminDto">
+        SELECT ID, MANAGERNAME, ADTEL, ADNAME, ADDRESS, INTRODUCTION, totalHc
+        FROM Member
+    </select>
+
 </mapper>
