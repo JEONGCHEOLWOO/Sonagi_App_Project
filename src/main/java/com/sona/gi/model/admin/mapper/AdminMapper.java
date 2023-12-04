@@ -9,6 +9,6 @@ import java.util.List;
 public interface AdminMapper {
     int requestAdmin(AdminDto adminDto);
 
-    List<AdminDto> findAll(AdminDto adminDto);
+    List<AdminDto> findAll();
 
 }

@@ -17,6 +17,6 @@ public class AdminServiceImpl implements AdminService {
     public int requestAdmin(AdminDto adminDto) {return adminMapper.requestAdmin(adminDto);}
 
     @Override
-    public List<AdminDto> findAll(AdminDto adminDto) { return adminMapper.findAll(adminDto); }
+    public List<AdminDto> findAll() { return adminMapper.findAll(); }
 
 }
