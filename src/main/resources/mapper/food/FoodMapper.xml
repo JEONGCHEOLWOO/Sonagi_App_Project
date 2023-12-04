@@ -22,10 +22,16 @@
         where ID = #{id}
     </select>
 
+    <select id="findByFoodName" parameterType="FoodDto" resultType="FoodDto">
+        SELECT ID, FOODNAME, FOODAMOUNT, FOODPRICE, FOODTEL, FOODADDRESS, FOODGIVER, FOODIMAGE, FOODUPLOADTIME, CONTEXT, COOKINGTIME, DEADLINE
+        FROM Food
+        WHERE ID=#{id} AND FOODNAME=#{foodName}
+    </select>
+
     <!-- 음식 정보 수정 -->
     <update id="modify" parameterType="FoodDto">
-        UPDATE Food SET FOODNAME=#{foodName}, FOODAMONUT=#{foodAmount}, FOODPRICE=#{foodPrice}, FOODIMAGE=#{foodImage}, FOODUPLOADTIME=NOW(), CONTEXT=#{context}, COOKINGTIME=#{cookingTime}, DEADLINE=#{deadline}
-        WHERE ID=#{id}
+        UPDATE Food SET FOODAMONUT=#{foodAmount}, FOODPRICE=#{foodPrice}, FOODIMAGE=#{foodImage}, FOODUPLOADTIME=NOW(), CONTEXT=#{context}, COOKINGTIME=#{cookingTime}, DEADLINE=#{deadline}
+        WHERE ID=#{id} AND FOODNAME=#{foodName}
     </update>
 
     <!-- 음식 등록 삭제 -->
@@ -44,7 +50,7 @@
     <update id="minus" parameterType="FoodDto">
         UPDATE Food
         SET foodAmount = foodAmount - #{foodAmount}
-        WHERE ID=#{id} AND foodAmount > #{foodAmount}
+        WHERE ID=#{id} AND foodAmount > #{foodAmount} AND FOODNAME=#{foodName}
     </update>
 
 </mapper>

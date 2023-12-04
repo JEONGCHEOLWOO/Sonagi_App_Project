@@ -39,6 +39,9 @@ public class FoodServiceImpl implements FoodService{
     }
 
     @Override
+    public List<FoodDto> findByFoodName(FoodDto foodDto) { return foodMapper.findByFoodName(foodDto);}
+
+    @Override
     public int updateImageUrl(FoodDto foodDto) {
         return foodMapper.updateImageUrl(foodDto);
     }

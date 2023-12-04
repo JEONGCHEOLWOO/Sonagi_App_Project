@@ -71,6 +71,12 @@ public class FoodController {
         return list;
     }
 
+    @PostMapping("/findByFoodName")
+    public List<FoodDto> findByFoodName(@RequestBody FoodDto foodDto){
+        List<FoodDto> list = foodService.findByFoodName(foodDto);
+        return list;
+    }
+
     @PostMapping("/files")
     public String uploadFileToFirebase(
             @RequestParam("file") MultipartFile file,
