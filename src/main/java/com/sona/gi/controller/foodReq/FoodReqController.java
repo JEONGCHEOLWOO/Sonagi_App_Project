@@ -31,6 +31,12 @@ public class FoodReqController {
         return list;
     }
 
+    @PostMapping("/findByIdFoodName")
+    public List<FoodReqDto> findByIdFoodName(@RequestBody FoodReqDto foodReqDto){
+        List<FoodReqDto> list = foodReqService.findByIdFoodName(foodReqDto);
+        return list;
+    }
+
     @PostMapping("/findByIdFoodNameSenderId")
     public List<FoodReqDto> findByIdFoodNameSenderId(@RequestBody FoodReqDto foodReqDto){
         List<FoodReqDto> list = foodReqService.findByIdFoodNameSenderId(foodReqDto);

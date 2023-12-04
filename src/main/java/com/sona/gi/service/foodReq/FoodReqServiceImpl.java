@@ -22,6 +22,9 @@ public class FoodReqServiceImpl implements FoodReqService{
     }
 
     @Override
+    public List<FoodReqDto> findByIdFoodName(FoodReqDto foodReqDto) { return foodReqMapper.findByIdFoodName(foodReqDto);}
+
+    @Override
     public List<FoodReqDto> findByIdFoodNameSenderId(FoodReqDto foodReqDto) { return foodReqMapper.findByIdFoodNameSenderId(foodReqDto);}
 
     @Override

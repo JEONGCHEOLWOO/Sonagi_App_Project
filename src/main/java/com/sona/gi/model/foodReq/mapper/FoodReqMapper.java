@@ -12,6 +12,8 @@ public interface FoodReqMapper {
 
     List<FoodReqDto> findById(FoodReqDto foodReqDto);
 
+    List<FoodReqDto> findByIdFoodName(FoodReqDto foodReqDto);
+
     List<FoodReqDto> findByIdFoodNameSenderId(FoodReqDto foodReqDto);
 
     int delete(FoodReqDto foodReqDto);
