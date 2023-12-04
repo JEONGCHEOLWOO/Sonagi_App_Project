@@ -5,26 +5,26 @@
 
     <!-- 음식 등록 -->
     <insert id="regist" parameterType="FoodDto">
-        INSERT INTO Food (ID, FOODNAME, FOODAMOUNT, FOODPRICE, FOODTEL, FOODADDRESS, FOODGIVER, FOODIMAGE, FOODUPLOADTIME, CONTEXT, COOKINGTIME)
-        VALUES (#{id}, #{foodName}, #{foodAmount}, #{foodPrice}, #{foodTel}, #{foodAddress}, #{foodGiver}, #{foodImage}, NOW(), #{context}, #{cookingTime})
+        INSERT INTO Food (ID, FOODNAME, FOODAMOUNT, FOODPRICE, FOODTEL, FOODADDRESS, FOODGIVER, FOODIMAGE, FOODUPLOADTIME, CONTEXT, COOKINGTIME, DEADLINE)
+        VALUES (#{id}, #{foodName}, #{foodAmount}, #{foodPrice}, #{foodTel}, #{foodAddress}, #{foodGiver}, #{foodImage}, NOW(), #{context}, #{cookingTime}, #{deadline})
     </insert>
 
     <!-- 음식 정보 전체 찾기 -->
     <select id="findAll" resultType="FoodDto">
-        SELECT ID, FOODNAME, FOODAMOUNT, FOODPRICE, FOODTEL, FOODADDRESS, FOODGIVER, FOODIMAGE, FOODUPLOADTIME, CONTEXT, COOKINGTIME
+        SELECT ID, FOODNAME, FOODAMOUNT, FOODPRICE, FOODTEL, FOODADDRESS, FOODGIVER, FOODIMAGE, FOODUPLOADTIME, CONTEXT, COOKINGTIME, DEADLINE
         FROM Food
     </select>
 
     <!-- 아이디로 음식 찾기 -->
     <select id="findById" parameterType="FoodDto" resultType="FoodDto">
-        SELECT ID, FOODNAME, FOODAMOUNT, FOODPRICE, FOODTEL, FOODADDRESS, FOODGIVER, FOODIMAGE, FOODUPLOADTIME, CONTEXT, COOKINGTIME
+        SELECT ID, FOODNAME, FOODAMOUNT, FOODPRICE, FOODTEL, FOODADDRESS, FOODGIVER, FOODIMAGE, FOODUPLOADTIME, CONTEXT, COOKINGTIME, DEADLINE
         FROM Food
         where ID = #{id}
     </select>
 
     <!-- 음식 정보 수정 -->
     <update id="modify" parameterType="FoodDto">
-        UPDATE Food SET FOODNAME=#{foodName}, FOODAMONUT=#{foodAmount}, FOODPRICE=#{foodPrice}, FOODIMAGE=#{foodImage}, FOODUPLOADTIME=NOW(), CONTEXT=#{context}, COOKINGTIME=#{cookingTime}
+        UPDATE Food SET FOODNAME=#{foodName}, FOODAMONUT=#{foodAmount}, FOODPRICE=#{foodPrice}, FOODIMAGE=#{foodImage}, FOODUPLOADTIME=NOW(), CONTEXT=#{context}, COOKINGTIME=#{cookingTime}, DEADLINE=#{deadline}
         WHERE ID=#{id}
     </update>
 
