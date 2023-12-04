@@ -44,7 +44,7 @@
     <update id="minus" parameterType="FoodDto">
         UPDATE Food
         SET foodAmount = foodAmount - #{foodAmount}
-        WHERE ID=#{id}
+        WHERE ID=#{id} AND foodAmount > #{foodAmount}
     </update>
 
 </mapper>

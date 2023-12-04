@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.00//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sona.gi.model.notification.mapper.NotificationMapper">
+
+    <!-- 등록 -->
+    <insert id="regist" parameterType="NotificationDto">
+        INSERT INTO Notification (TITLE, BODY, IMAGE, RELIST)
+        VALUES (#{title},#{body},#{image},#{reList})
+    </insert>
+
+    <!-- 검색 -->
+    <select id="findAll" resultType="NotificationDto">
+        SELECT TITLE, BODY, IMAGE, RELIST
+        FROM Notification
+    </select>
+
+</mapper>
