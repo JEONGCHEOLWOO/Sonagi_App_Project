@@ -31,6 +31,12 @@ public class FoodReqController {
         return list;
     }
 
+    @PostMapping("/findByIdFoodNameSenderId")
+    public int findByIdFoodNameSenderId(@RequestBody FoodReqDto foodReqDto){
+        int resultCnt = foodReqService.findByIdFoodNameSenderId(foodReqDto);
+        return resultCnt;
+    }
+
     @PostMapping("/delete")
     public HashMap<String,Object> delete(@RequestBody FoodReqDto foodReqDto){
         HashMap<String,Object> mv = new HashMap<>();

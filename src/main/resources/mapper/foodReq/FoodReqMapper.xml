@@ -16,6 +16,12 @@
         where receiverId = #{receiverId}
     </select>
 
+    <select id="findByIdFoodNameSenderId" parameterType="FoodReqDto" resultType="FoodReqDto">
+        SELECT *
+        FROM DonationRequest
+        where receiverId = #{receiverId} AND foodName = #{foodName} AND senderId = #{senderId}
+    </select>
+
     <delete id="delete" parameterType="FoodReqDto">
         DELETE FROM DonationRequest
         WHERE senderId = #{senderId} AND serving = #{serving} AND receiver = #{receiver} AND foodName = #{foodName}

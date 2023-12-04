@@ -14,7 +14,7 @@ public class NotificationController {
     @Autowired
     private NotificationService notificationService;
 
-    @PostMapping("/regist") //
+    @PostMapping("/regist") // title, body, image, reList 필요
     public int regist(@RequestBody NotificationDto notificationDto){
         int resultCnt = notificationService.regist(notificationDto);
         return resultCnt;
