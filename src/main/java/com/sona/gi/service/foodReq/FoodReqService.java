@@ -8,7 +8,7 @@ public interface FoodReqService {
 
     int regist(FoodReqDto foodReqDto);
     List<FoodReqDto> findById(FoodReqDto foodReqDto);
-    int findByIdFoodNameSenderId(FoodReqDto foodReqDto);
+    List<FoodReqDto> findByIdFoodNameSenderId(FoodReqDto foodReqDto);
     int delete(FoodReqDto foodReqDto);
     List<FoodReqDto> findBySenderId(FoodReqDto foodReqDto);
     int senderDelete(FoodReqDto foodReqDto);

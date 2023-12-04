@@ -16,7 +16,7 @@
         where receiverId = #{receiverId}
     </select>
 
-    <select id="findByIdFoodNameSenderId" parameterType="FoodReqDto" resultType="Integer">
+    <select id="findByIdFoodNameSenderId" parameterType="FoodReqDto" resultType="FoodReqDto">
         SELECT *
         FROM DonationRequest
         where receiverId = #{receiverId} AND foodName = #{foodName} AND senderId = #{senderId}

@@ -32,9 +32,9 @@ public class FoodReqController {
     }
 
     @PostMapping("/findByIdFoodNameSenderId")
-    public int findByIdFoodNameSenderId(@RequestBody FoodReqDto foodReqDto){
-        int resultCnt = foodReqService.findByIdFoodNameSenderId(foodReqDto);
-        return resultCnt;
+    public List<FoodReqDto> findByIdFoodNameSenderId(@RequestBody FoodReqDto foodReqDto){
+        List<FoodReqDto> list = foodReqService.findByIdFoodNameSenderId(foodReqDto);
+        return list;
     }
 
     @PostMapping("/delete")

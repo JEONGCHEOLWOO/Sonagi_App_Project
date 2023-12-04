@@ -22,7 +22,7 @@ public class FoodReqServiceImpl implements FoodReqService{
     }
 
     @Override
-    public int findByIdFoodNameSenderId(FoodReqDto foodReqDto) { return foodReqMapper.findByIdFoodNameSenderId(foodReqDto);}
+    public List<FoodReqDto> findByIdFoodNameSenderId(FoodReqDto foodReqDto) { return foodReqMapper.findByIdFoodNameSenderId(foodReqDto);}
 
     @Override
     public int delete(FoodReqDto foodReqDto) {

@@ -12,7 +12,7 @@ public interface FoodReqMapper {
 
     List<FoodReqDto> findById(FoodReqDto foodReqDto);
 
-    int findByIdFoodNameSenderId(FoodReqDto foodReqDto);
+    List<FoodReqDto> findByIdFoodNameSenderId(FoodReqDto foodReqDto);
 
     int delete(FoodReqDto foodReqDto);
 
