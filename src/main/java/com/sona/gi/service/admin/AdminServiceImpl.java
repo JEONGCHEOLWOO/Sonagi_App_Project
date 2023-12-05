@@ -19,4 +19,7 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public List<AdminDto> findAll() { return adminMapper.findAll(); }
 
+    @Override
+    public int delete(AdminDto adminDto) { return adminMapper.delete(adminDto); }
+
 }

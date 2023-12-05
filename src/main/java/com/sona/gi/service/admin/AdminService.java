@@ -9,4 +9,6 @@ public interface AdminService {
 
     List<AdminDto> findAll();
 
+    int delete(AdminDto adminDto);
+
 }

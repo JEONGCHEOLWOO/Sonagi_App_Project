@@ -11,4 +11,7 @@ public interface AdminMapper {
 
     List<AdminDto> findAll();
 
+    int delete(AdminDto adminDto);
+
+
 }
