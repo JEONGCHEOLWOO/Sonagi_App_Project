@@ -16,7 +16,7 @@
     </select>
 
     <!-- 공지사항 번호로 검색 -->
-    <select id="textNumSearch" resultType="NoticeDto">
+    <select id="textNumSearch" parameterType="NoticeDto" resultType="NoticeDto">
         SELECT id, textNum, title, context, noticeDate, noticeIdentify
         FROM Notice
         WHERE textNum=#{textNum}
