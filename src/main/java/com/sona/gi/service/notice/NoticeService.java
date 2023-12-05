@@ -8,7 +8,7 @@ public interface NoticeService {
 
     int regist(NoticeDto noticeDto);
     List<NoticeDto> findAll();
-    List<NoticeDto> textNumSearch(String textNum);
+    List<NoticeDto> textNumSearch(NoticeDto noticeDto);
     int modify(NoticeDto noticeDto);
 
     int delete(NoticeDto noticeDto);

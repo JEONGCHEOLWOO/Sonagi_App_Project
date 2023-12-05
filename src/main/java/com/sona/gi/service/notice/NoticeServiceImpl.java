@@ -22,7 +22,7 @@ public class NoticeServiceImpl implements NoticeService {
         return noticeMapper.findAll();
     }
     @Override
-    public List<NoticeDto> textNumSearch(String textNum) { return noticeMapper.textNumSearch(textNum); }
+    public List<NoticeDto> textNumSearch(NoticeDto noticeDto) { return noticeMapper.textNumSearch(noticeDto); }
 
     @Override
     public int modify(NoticeDto noticeDto) {

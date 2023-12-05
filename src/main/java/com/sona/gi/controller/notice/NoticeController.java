@@ -31,8 +31,8 @@ public class NoticeController {
     }
 
     @PostMapping("/textNumSearch")
-    public List<NoticeDto> textNumSearch(@RequestBody String textNum){
-        List<NoticeDto> list = noticeService.textNumSearch(textNum);
+    public List<NoticeDto> textNumSearch(@RequestBody NoticeDto noticeDto){
+        List<NoticeDto> list = noticeService.textNumSearch(noticeDto);
         return list;
     }
 
