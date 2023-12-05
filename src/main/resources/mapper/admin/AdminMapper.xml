@@ -16,7 +16,7 @@
 
     <delete id="delete" parameterType="AdminDto">
         DELETE FROM Admin
-        WHERE ID = #{id} AND MANAGERNAME = #{managerName} AND ADTEL = #{adTel} AND ADNAME = #{adName} AND ADDRESS = #{address} AND INTRODUCTION = #{introduction} AND totalHc = #{totalHc}
+        WHERE ID=#{id} AND MANAGERNAME=#{managerName} AND ADTEL=#{adTel} AND ADNAME=#{adName} AND ADDRESS=#{address} AND totalHc=#{totalHc}
     </delete>
 
 </mapper>
