@@ -24,6 +24,7 @@ public class DonationDto {
     private int isReviewed;
     // 기부 음식 제목
     private String foodTitle;
+    private String foodImage;
 
     public Date getDonatedDate() {
         return donatedDate;
@@ -79,5 +80,13 @@ public class DonationDto {
 
     public void setFoodTitle(String foodTitle) {
         this.foodTitle = foodTitle;
+    }
+
+    public String getFoodImage() {
+        return foodImage;
+    }
+
+    public void setFoodImage(String foodImage) {
+        this.foodImage = foodImage;
     }
 }
