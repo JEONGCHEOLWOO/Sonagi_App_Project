@@ -82,4 +82,10 @@ public class ReviewController {
         List<ReviewDto> list = reviewService.findByIdR(reviewDto);
         return list;
     }
+
+    @PostMapping("/findByDonatorReciverReviewTitle")
+    public List<ReviewDto> findByDonatorReciverReviewTitle(@RequestBody ReviewDto reviewDto){
+        List<ReviewDto> list = reviewService.findByDonatorReciverReviewTitle(reviewDto);
+        return list;
+    }
 }

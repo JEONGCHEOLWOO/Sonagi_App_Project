@@ -6,7 +6,7 @@ import java.sql.Date;
 public class DonationDto {
 
     //기부한 날짜
-    private Date donatedDate;
+    private String donatedDate;
 
     //기부한 사람
     private String donatedProvider;
@@ -26,11 +26,11 @@ public class DonationDto {
     private String foodTitle;
     private String foodImage;
 
-    public Date getDonatedDate() {
+    public String getDonatedDate() {
         return donatedDate;
     }
 
-    public void setDonatedDate(Date donatedDate) {
+    public void setDonatedDate(String donatedDate) {
         this.donatedDate = donatedDate;
     }
 

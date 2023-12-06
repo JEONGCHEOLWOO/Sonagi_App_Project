@@ -40,4 +40,7 @@ public class ReviewServiceImpl implements ReviewService{
 
     @Override
     public List<ReviewDto> findByIdR(ReviewDto reviewDto) { return reviewMapper.findByIdR(reviewDto); }
+
+    @Override
+    public List<ReviewDto> findByDonatorReciverReviewTitle(ReviewDto reviewDto) { return reviewMapper.findByDonatorReciverReviewTitle(reviewDto); }
 }

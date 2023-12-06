@@ -6,19 +6,19 @@
 
 
     <insert id="regist" parameterType="ReviewDto">
-        INSERT INTO ReviewThx (regionCategory, reviewTitle, reviewContext, donator, receiver, reviewDate, reviewImage)
-        VALUES (#{regionCategory}, #{reviewTitle}, #{reviewContext}, #{donator}, #{receiver}, NOW(), #{reviewImage})
+        INSERT INTO ReviewThx (regionCategory, reviewTitle, reviewContext, donator, receiver, reviewDate, reviewImage, foodName)
+        VALUES (#{regionCategory}, #{reviewTitle}, #{reviewContext}, #{donator}, #{receiver}, NOW(), #{reviewImage}, #{foodName})
     </insert>
 
     <select id="findAll" resultType="ReviewDto">
-        SELECT regionCategory, reviewTitle, reviewContext, donator, receiver, reviewDate, reviewImage
+        SELECT regionCategory, reviewTitle, reviewContext, donator, receiver, reviewDate, reviewImage, foodName
         FROM ReviewThx
     </select>
 
     <update id="modify" parameterType="ReviewDto">
         UPDATE ReviewThx SET reviewTitle=#{reviewTitle},
                              reviewContext=#{reviewContext}, reviewDate=NOW()
-        WHERE receiver = #{receiver}
+        WHERE receiver=#{receiver} AND donator=#{donator} AND foodName=#{foodName}
     </update>
 
 
@@ -30,19 +30,25 @@
     <update id="updateImageUrl" parameterType="ReviewDto">
         UPDATE ReviewThx
         SET REVIEWIMAGE = #{reviewImage}
-        WHERE receiver = #{receiver}
+        WHERE receiver=#{receiver} AND donator=#{donator} AND foodName=#{foodName}
     </update>
 
     <select id="findByIdD" parameterType="ReviewDto" resultType="ReviewDto">
-        SELECT regionCategory, reviewTitle, reviewContext, donator, receiver, reviewDate, reviewImage
+        SELECT regionCategory, reviewTitle, reviewContext, donator, receiver, reviewDate, reviewImage, foodName
         FROM   ReviewThx
         where  donator=#{donator}
     </select>
 
     <select id="findByIdR" parameterType="ReviewDto" resultType="ReviewDto">
-        SELECT regionCategory, reviewTitle, reviewContext, donator, receiver, reviewDate, reviewImage
+        SELECT regionCategory, reviewTitle, reviewContext, donator, receiver, reviewDate, reviewImage, foodName
         FROM   ReviewThx
         where  receiver=#{receiver}
+    </select>
+
+    <select id="findByDonatorReciverReviewTitle" parameterType="ReviewDto" resultType="ReviewDto">
+        SELECT regionCategory, reviewTitle, reviewContext, donator, receiver, reviewDate, reviewImage, foodName
+        FROM   ReviewThx
+        where  receiver=#{receiver} AND donator=#{donator} AND foodName=#{foodName}
     </select>
 
 </mapper>

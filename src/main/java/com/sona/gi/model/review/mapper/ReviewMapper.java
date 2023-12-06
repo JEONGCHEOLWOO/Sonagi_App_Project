@@ -14,4 +14,6 @@ public interface ReviewMapper {
     int updateImageUrl(ReviewDto reviewDto);
     List<ReviewDto> findByIdD(ReviewDto reviewDto);
     List<ReviewDto> findByIdR(ReviewDto reviewDto);
+    List<ReviewDto> findByDonatorReciverReviewTitle(ReviewDto reviewDto);
+
 }

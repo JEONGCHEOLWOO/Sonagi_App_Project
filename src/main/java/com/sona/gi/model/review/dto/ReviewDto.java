@@ -20,6 +20,8 @@ public class ReviewDto {
     // 리뷰 사진
     private String reviewImage;
 
+    private String foodName;
+
     public String getRegionCategory() {
         return regionCategory;
     }
@@ -74,5 +76,13 @@ public class ReviewDto {
 
     public void setReviewImage(String reviewImage) {
         this.reviewImage = reviewImage;
+    }
+
+    public String getFoodName() {
+        return foodName;
+    }
+
+    public void setFoodName(String foodName) {
+        this.foodName = foodName;
     }
 }
