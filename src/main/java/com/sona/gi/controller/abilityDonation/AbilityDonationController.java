@@ -14,7 +14,7 @@ public class AbilityDonationController {
     @Autowired
     private AbilityDonationService abilityDonationService;
 
-    @PostMapping("/regist")
+    @PostMapping("/regist") // adName, managerName, phoneNum, introduction, donationDate, progressTime, currHc, place, sharingContents
     public int regist(@RequestBody AbilityDonationDto abilityDonationDto){
         int resultCnt = abilityDonationService.regist(abilityDonationDto);
         return resultCnt;
@@ -26,13 +26,13 @@ public class AbilityDonationController {
         return list;
     }
 
-    @PostMapping("/delete")
+    @PostMapping("/delete")// adName, managerName
     public int delete(@RequestBody AbilityDonationDto abilityDonationDto){
         int resultCnt = abilityDonationService.delete(abilityDonationDto);
         return resultCnt;
     }
 
-    @PostMapping("/findByadName")
+    @PostMapping("/findByadName") // adName
     public List<AbilityDonationDto> findByadName(@RequestBody AbilityDonationDto abilityDonationDto){
         List<AbilityDonationDto> list = abilityDonationService.findByadName(abilityDonationDto);
         return list;

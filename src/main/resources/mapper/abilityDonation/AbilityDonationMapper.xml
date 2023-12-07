@@ -3,8 +3,6 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sona.gi.model.abilityDonation.mapper.AbilityDonationMapper">
 
-
-
     <insert id="regist" parameterType="AbilityDonationDto">
         INSERT INTO AbilityDonation ( ADNAME, MANAGERNAME, PHONENUM, INTRODUCTION, DONATIONDATE, PROGRESSTIME, CURRHC, PLACE, SHARINGCONTENTS)
         VALUES (#{adName},#{managerName},#{phoneNum},#{introduction},#{donationDate},#{progressTime},#{currHc},#{place},#{sharingContents})
