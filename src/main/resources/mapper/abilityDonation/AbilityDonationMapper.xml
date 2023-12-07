@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.00//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sona.gi.model.abilityDonation.mapper.AbilityDonationMapper">
+
+
+
+    <insert id="regist" parameterType="AbilityDonationDto">
+        INSERT INTO AbilityDonation ( ADNAME, MANAGERNAME, PHONENUM, INTRODUCTION, DONATIONDATE, PROGRESSTIME, CURRHC, PLACE, SHARINGCONTENTS)
+        VALUES (#{adName},#{managerName},#{phoneNum},#{introduction},#{donationDate},#{progressTime},#{currHc},#{place},#{sharingContents})
+    </insert>
+
+    <select id="findAll" resultType="AbilityDonationDto">
+        SELECT  ADNAME, MANAGERNAME, PHONENUM, INTRODUCTION, DONATIONDATE, PROGRESSTIME, CURRHC, PLACE, SHARINGCONTENTS
+        FROM AbilityDonation
+    </select>
+
+    <delete id="delete" parameterType="AbilityDonationDto">
+        DELETE FROM AbilityDonation
+        WHERE ADNAME=#{adName} AND MANAGERNAME=#{managerName}
+    </delete>
+
+    <select id="findByadName" resultType="AbilityDonationDto">
+        SELECT  ADNAME, MANAGERNAME, PHONENUM, INTRODUCTION, DONATIONDATE, PROGRESSTIME, CURRHC, PLACE, SHARINGCONTENTS
+        FROM AbilityDonation
+        WHERE adName=#{adName}
+    </select>
+
+</mapper>
