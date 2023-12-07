@@ -49,7 +49,7 @@
     </update>
 
     <!-- 기부자(음식점) 아이디로 찾기 -->
-    <select id="findById" parameterType="RestaurantDto" resultType="RestaurantDto">
+    <select id="findById" parameterType="RestaurantDto">
         SELECT ID, PASSWORD, NAME, PHONENUM, ADTEL, ADNAME, ADDRESS, BNUM, PROFILEIMAGE, EXPOTOKEN, FCMTOKEN
         FROM Restaurant
         where ID = #{id}
