@@ -22,7 +22,7 @@
 | <img src="https://github.com/aSIX-final-project/Sonagi_App/assets/145747048/9f8bd85a-06ef-45c7-a8a0-cac97b2890a3" width="150" height="150"> | <img src="https://github.com/aSIX-final-project/Sonagi_App/assets/145747048/fe02368b-5e14-47cf-be16-c2766a5ab726" width="150" height="150"> | <img src="https://github.com/aSIX-final-project/Sonagi_App/assets/145747048/ef0d850c-df6e-467c-b6c4-4daccb8cdaf9" width="150" height="150"> | <img src="https://github.com/aSIX-final-project/Sonagi_App/assets/145747048/ecfb838c-e02e-4bae-9cb6-0b42b775d3b1" width="150" height="150"> |
 | 팀장<br>앱 제작, 아이디어 | 팀원<br>백엔드<br>앱 제작, 웹 설계 | 팀원<br>백엔드<br>DB 설계, 앱 설계 및 제작 | 팀원<br>프론트<br>디자인 |
 
-#### ⚙ 개발 환경
+### ⚙ 개발 환경
 
 - Java 17
 - Node 18
