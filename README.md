@@ -36,6 +36,7 @@
 ---
 
 ### 📝 기능 요구 명세서
+
 <img src="https://github.com/aSIX-final-project/Sonagi_App/assets/75625504/1270fa44-02b4-4921-b934-dbcc3a786a05">
 
 ### 📖 REST API
