@@ -415,3 +415,7 @@
 
 #### API
 <img src="https://img.shields.io/badge/kakao-FFCD00?style=for-the-badge&logo=springboot&logoColor=white">&nbsp;
+
+---
+
+## 외부 서버(클라우드타입)에서 매일 서버를 다시 켜야되는 이유로 현재는 실행되지 않는 점 참고해주시면 감사하겠습니다.
