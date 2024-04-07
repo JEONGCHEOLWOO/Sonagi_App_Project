@@ -5,10 +5,7 @@
 
  조리된 음식을 푸드뱅크에 기부하는 것은 복잡한 과정을 필요로 합니다. 푸드뱅크를 통하지 않고 직접 기부하는 것도 번거로운 일입니다. 그러나 기부자와 수혜자를 자연스럽게 연결하는 시스템을 통해, 기부 과정을 간편하게 만들 수 있습니다. 이렇게 하면, 기부를 더욱 쉽게 할 수 있게 됩니다.
  
- ---
 # 💻프로젝트 소개
-
----
 
 ## 🕰 개발 기간
 
@@ -30,25 +27,15 @@
 - Database : MySQL(8.0.x)
 - ORM: Mybatis, JPA
 
----
-
 # 📌 주요 기능
-
----
 
 ## 📝 기능 요구 명세서
 
 <img src="https://github.com/aSIX-final-project/Sonagi_App/assets/75625504/1270fa44-02b4-4921-b934-dbcc3a786a05">
 
----
-
 ## 📖 REST API
 
----
-
 ## &ensp;보육시설(피기부자) Member &ensp;/boot/member 
-
----
 
 ### &emsp;로그인 /login [`POST`]
 - `id`: String
