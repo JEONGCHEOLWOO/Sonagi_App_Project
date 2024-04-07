@@ -85,6 +85,8 @@
 ### &emsp;ID로 회원정보 얻기 /findById [`POST`]
 - `id`: String
 
+---
+
 ## &ensp;소상공인(기부자),음식점  Restaurant &ensp;/boot/restaurant
 
 ### &emsp;로그인 /login [`POST`]
@@ -131,6 +133,8 @@
 ### &emsp;ID로 회원정보 얻기 /findById [`POST`]
 - `id`: String
 
+---
+
 ## &ensp;관리자(기부자와 피기부자에서 회원정보 수정,삭제 요청시 관리자에서 처리) Admin &ensp;/boot/admin
 
 ### &emsp;관리자에게 요청 /requestAdmin [`POST`]
@@ -151,6 +155,8 @@
 - `id`: String
 - `managerName`: String
 - `totalHc`: int
+
+---
 
 ## &ensp;재능 기부 Ability &ensp;/boot/Ability
 
@@ -174,6 +180,8 @@
 ### &emsp;재능 기부 시설 이름으로 정보 찾기 /findByadName [`POST`]
 - `adName`: String
 
+---
+
 ## &ensp;크롤링 Crawling &ensp;/boot/crawling
 
 ### &emsp;크롤링 한 리스트 전부 /findAll [`GET`]
@@ -183,6 +191,8 @@
 
 ### &emsp;네이버 크롤링 /findNaver [`GET`]
 - https://finsupport.naver.com/subvention/search 네이버 비즈니스 금융센터 사이트에 나오는 정책지원금 공고 크롤링
+
+---
 
 ## &ensp;기부 Donation &ensp;/boot/donation
 
@@ -210,6 +220,8 @@
 - `isReviewed`: int
 - `donatedProvider`: String
 - `foodTitle`: String
+
+---
 
 ## &ensp;음식 Food &ensp;/boot/food
 
@@ -262,6 +274,8 @@
 - `foodAmount`: String
 - `foodName`: String
 
+---
+
 ## &ensp;음식 요청사항 FoodReq &ensp;/boot/foodReq
 
 ### &emsp;음식점에 음식 요청사항 등록 /regist [`POST`]
@@ -301,6 +315,8 @@
 - `senderId`: String
 - `foodName`: String
 
+---
+
 ## &ensp;공지사항 Notice &ensp;/boot/notice
 
 ### &emsp;공지사항 등록 /regist [`POST`]
@@ -324,6 +340,8 @@
 
 ### &emsp;공지사항 아이디로 번호 찾기 /{id} [`GET`]
 
+---
+
 ## &ensp;공고 Notification &ensp;/boot/notification
 
 ### &emsp;공고 등록 /regist [`POST`]
@@ -333,6 +351,8 @@
 - `reList`: String
 
 ### &emsp;모든 공고 얻기 /findAll [`GET`]
+
+---
 
 ## &ensp;리뷰 Review &ensp;/boot/review
 
@@ -379,6 +399,8 @@
 - `receiver`: String
 - `donator`: String
 - `foodName`: String
+
+---
 
 ## 📋 ERD
 
